@@ -1,0 +1,8 @@
+{
+    "syntax_list":
+    [
+        "Python.sublime-syntax",
+        "Ruby",
+        "Bash"
+    ]
+}

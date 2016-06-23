@@ -7,19 +7,36 @@
 
 import sublime, sublime_plugin
 
-
-def is_newline_or_whitespace(char):
-
-    return char == '\n' or char == '\t' or char == ' '
-
-
 class SingleTrailingNewLineAtEndOfFileListener(sublime_plugin.EventListener):
 
     def on_pre_save(self, view):
 
-        # A sublime_plugin.TextCommand class is needed for an edit object.
-        view.run_command("single_trailing_new_line_at_end_of_file")
+        current_syntax = view.settings().get('syntax')
+    
+        if self.should_plugin_run_with_syntax(current_syntax):
+            # A sublime_plugin.TextCommand class is needed for an edit object.
+            view.run_command("single_trailing_new_line_at_end_of_file")
+
         return None
+
+
+    def should_plugin_run_with_syntax(self, current_syntax):
+
+        settings_file = "SingleTrailingNewLineAtEndOfFile.sublime-settings"
+        settings = sublime.load_settings(settings_file)
+        valid_sytaxes = settings.get("syntax_list", [])
+        
+        if not isinstance(valid_sytaxes, list):
+            return True
+
+        if len(valid_sytaxes) == 0:
+            return True
+
+        for valid_sytax in valid_sytaxes:
+            if valid_sytax.lower() in current_syntax.lower():
+                return True
+        
+        return False
 
 
 class SingleTrailingNewLineAtEndOfFileCommand(sublime_plugin.TextCommand):
@@ -36,7 +53,7 @@ class SingleTrailingNewLineAtEndOfFileCommand(sublime_plugin.TextCommand):
         pos = self.view.size() - 1
         char = self.view.substr(pos)
 
-        while pos >= 0 and is_newline_or_whitespace(char):
+        while pos >= 0 and char.isspace():
             pos -= 1
             char = self.view.substr(pos)
 
