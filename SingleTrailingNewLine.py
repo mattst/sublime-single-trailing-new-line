@@ -14,7 +14,11 @@
 #
 # Settings Fields:    syntax_list: a list of Sublime Text syntaxes which
 #                     enable the plugin.
-#
+# 
+#                     enable_for_all_files: boolean to control whether the
+#                     plugin should be run for all files or not. If set to
+#                     true then the "syntax_list" setting is ignored.
+# 
 # This Sublime Text plugin makes sure that when files are saved there is always
 # exactly one trailing newline at the end the files. It works by deleting all
 # the newlines and whitespace at the end of the file and then inserting a single
@@ -67,19 +71,17 @@ class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
         if self.view.size() < 1:
             return
 
-        # Work backwards from the end of the file to find the position of the
-        # last significant char, one that is neither whitespace nor a newline.
+        # Find the last character that is neither whitespace nor a newline.
 
         pos = self.view.size() - 1
 
         while pos >= 0 and self.view.substr(pos).isspace():
             pos -= 1
 
-        # Delete from the last significant char (not inc.) to the end of the
-        # file and then add a single trailing newline at the end of the file.
+        # Delete trailing whitespace and add a single trailing newline.
 
-        del_region = sublime.Region(pos + 1, self.view.size())
-        self.view.erase(edit, del_region)
+        erase_region = sublime.Region(pos + 1, self.view.size())
+        self.view.erase(edit, erase_region)
         self.view.insert(edit, self.view.size(), "\n")
 
 
@@ -92,11 +94,13 @@ class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
 
         settings_file = "SingleTrailingNewLine.sublime-settings"
         settings = sublime.load_settings(settings_file)
-        syntax_list = settings.get("syntax_list", [])
+
         enable_for_all_files = settings.get("enable_for_all_files", False)
 
         if enable_for_all_files:
             return True
+
+        syntax_list = settings.get("syntax_list", [])
 
         if not isinstance(syntax_list, list) or len(syntax_list) == 0:
             return False
@@ -105,7 +109,7 @@ class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
 
         for syntax in syntax_list:
             # Partial matches are allowed. For example:
-            # "Python" matches "Python.sublime-syntax"
+            # "Java" will match "JavaScript.sublime-syntax"
             if syntax in current_syntax:
                 return True
 
