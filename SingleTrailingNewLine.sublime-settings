@@ -1,4 +1,3 @@
-
 {
     "syntax_list": ["Python"],
     "enable_for_all_files": false
@@ -36,13 +35,16 @@
 // e.g. "Packages/Python Improved/PythonImproved.tmLanguage".
 //
 // It is generally advisable to use the full syntax name in the "syntax_list"
-// entries (as shown in the example "syntax_list" above) but a partial match
-// is also acceptable, e.g. "JSON.sublime-syntax". Note that this means:
-// 
+// entries (as shown by the example "syntax_list" above) but a partial syntax
+// name is also acceptable, e.g. "XML.sublime-syntax". Note that this means:
+//
 // a) "C.sublime-syntax" also matches "Objective-C.sublime-syntax".
-// 
+//
 // b) All of the syntaxes in a package can be enabled by using just the path.
 //    e.g. "Packages/Rails/" enables all 5 syntaxes from the Rails package.
-// 
-// c) "Java" matches 7 syntaxes from 2 different packages.
 //
+// c) "Java" matches all 7 syntaxes from the Java and JavaScript packages,
+//    as would "Packages/Java" but not "Packages/Java/" because the trailing
+//    forward slash would not match "Packages/JavaScript/".
+//
+
