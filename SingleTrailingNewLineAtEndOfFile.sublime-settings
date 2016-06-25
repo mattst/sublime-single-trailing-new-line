@@ -1,8 +1,48 @@
+
 {
-    "syntax_list":
-    [
-        "Python.sublime-syntax",
-        "Ruby",
-        "Bash"
-    ]
+    "syntax_list": [],
+    "enable_for_all_files": false
 }
+
+//
+// The settings file should be placed somewhere in the user's Sublime Text
+// packages folder hierarchy. Its path would typically be:
+//
+// "Packages/User/SingleTrailingNewLineAtEndOfFile.sublime-settings"
+//
+// If the "enable_for_all_files" setting is true the plugin will be active for
+// all files. Otherwise it will only be active if one of the syntaxes in the
+// "syntax_list" matches the syntax of the current file. Here is an example:
+//
+//    "syntax_list":
+//    [
+//        "Packages/C++/C.sublime-syntax",
+//        "Packages/C++/C++.sublime-syntax",
+//        "Packages/Java/Java.sublime-syntax",
+//        "Packages/JavaScript/JSON.sublime-syntax",
+//        "Packages/Python/Python.sublime-syntax",
+//        "Packages/Python Improved/PythonImproved.tmLanguage",
+//        "Packages/XML/XML.sublime-syntax"
+//    ]
+//
+// To get the full syntax name of the current file's syntax simply enter the
+// following command in the Sublime Text console:
+//
+//         view.settings().get("syntax")
+//
+// The "syntax_list" entries are case sensitive and wildcards can not be used.
+//
+// Text Mate compatible ".tmLanguage" syntaxes are, of course, acceptable.
+// e.g. "Packages/Python Improved/PythonImproved.tmLanguage".
+//
+// It is generally advisable to use the full syntax name in the "syntax_list"
+// entries (as shown in the example "syntax_list" above) but a partial match
+// is also acceptable, e.g. "JSON.sublime-syntax". Note that this means:
+// 
+// a) "C.sublime-syntax" also matches "Objective-C.sublime-syntax".
+// 
+// b) All of the syntaxes in a package can be enabled by using just the path.
+//    e.g. "Packages/Rails/" enables all 5 syntaxes from the Rails package.
+// 
+// c) "Java" matches 7 syntaxes from 2 different packages.
+//
