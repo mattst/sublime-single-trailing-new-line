@@ -1,6 +1,6 @@
 
 #
-# Name:               Single Trailing New Line at End of File
+# Name:               Single Trailing New Line
 #
 # Requirements:       Plugin for Sublime Text v2 and v3
 #
@@ -8,9 +8,9 @@
 #
 # License:            MIT License
 #
-# Plugin File:        SingleTrailingNewLineAtEndOfFile.py
+# Plugin File:        SingleTrailingNewLine.py
 #
-# Settings File:      SingleTrailingNewLineAtEndOfFile.sublime-settings
+# Settings File:      SingleTrailingNewLine.sublime-settings
 #
 # Settings Fields:    syntax_list: a list of Sublime Text syntaxes which
 #                     enable the plugin.
@@ -43,17 +43,17 @@ import sublime, sublime_plugin
 # the plugin will be run, and which is not implemented by the EventListener API.
 #
 
-class SingleTrailingNewLineAtEndOfFileListener(sublime_plugin.EventListener):
+class SingleTrailingNewLineListener(sublime_plugin.EventListener):
     """ Calls the corresponding TextCommand when a pre-save event occurs. """
 
     def on_pre_save(self, view):
         """ Called immediately before the file in the view is saved. """
         
-        view.run_command("single_trailing_new_line_at_end_of_file")
+        view.run_command("single_trailing_new_line")
         return None
 
 
-class SingleTrailingNewLineAtEndOfFileCommand(sublime_plugin.TextCommand):
+class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
     """
     Deletes all trailing newlines and whitespace at the end of the file and then
     inserts a single trailing newline at the end of the file. The is_enabled()
@@ -90,7 +90,7 @@ class SingleTrailingNewLineAtEndOfFileCommand(sublime_plugin.TextCommand):
         name has a match in the "syntax_list" setting, otherwise false.
         """
 
-        settings_file = "SingleTrailingNewLineAtEndOfFile.sublime-settings"
+        settings_file = "SingleTrailingNewLine.sublime-settings"
         settings = sublime.load_settings(settings_file)
         syntax_list = settings.get("syntax_list", [])
         enable_for_all_files = settings.get("enable_for_all_files", False)

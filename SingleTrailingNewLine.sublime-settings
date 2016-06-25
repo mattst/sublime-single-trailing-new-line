@@ -1,6 +1,6 @@
 
 {
-    "syntax_list": [],
+    "syntax_list": ["Python"],
     "enable_for_all_files": false
 }
 
@@ -8,7 +8,7 @@
 // The settings file should be placed somewhere in the user's Sublime Text
 // packages folder hierarchy. Its path would typically be:
 //
-// "Packages/User/SingleTrailingNewLineAtEndOfFile.sublime-settings"
+// "Packages/User/SingleTrailingNewLine.sublime-settings"
 //
 // If the "enable_for_all_files" setting is true the plugin will be active for
 // all files. Otherwise it will only be active if one of the syntaxes in the
