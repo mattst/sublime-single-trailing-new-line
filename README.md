@@ -104,7 +104,7 @@ To get the full syntax name of the current file's syntax simply enter the follow
 
      view.settings().get("syntax")
 
-For reference use only, this package also includes a full list of the syntaxes available by default in Sublime Text [version 2](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_2221_Syntax_List) and [version 3](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_3114_Syntax_List).
+For reference use only, this package also includes lists of the Sublime Text syntaxes available by default: [Sublime Text v2 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_2221_Syntax_List) and [Sublime Text v3 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_3114_Syntax_List).
 
 The `syntax_list` entries are case sensitive and wildcards can not be used.
 
