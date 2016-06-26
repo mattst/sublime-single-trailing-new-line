@@ -1,0 +1,77 @@
+A list of all the syntaxes from Sublime Text version 3114:
+
+Packages/ActionScript/ActionScript.sublime-syntax
+Packages/AppleScript/AppleScript.sublime-syntax
+Packages/ASP/ASP.sublime-syntax
+Packages/ASP/HTML-ASP.sublime-syntax
+Packages/Batch File/Batch File.sublime-syntax
+Packages/C#/Build.sublime-syntax
+Packages/C#/C#.sublime-syntax
+Packages/C++/C++.sublime-syntax
+Packages/C++/C.sublime-syntax
+Packages/Clojure/Clojure.sublime-syntax
+Packages/CSS/CSS.sublime-syntax
+Packages/D/D.sublime-syntax
+Packages/Diff/Diff.sublime-syntax
+Packages/Erlang/Erlang.sublime-syntax
+Packages/Erlang/HTML (Erlang).sublime-syntax
+Packages/Go/Go.sublime-syntax
+Packages/Graphviz/DOT.sublime-syntax
+Packages/Groovy/Groovy.sublime-syntax
+Packages/Haskell/Haskell.sublime-syntax
+Packages/Haskell/Literate Haskell.sublime-syntax
+Packages/HTML/HTML.sublime-syntax
+Packages/Java/Java Server Pages (JSP).sublime-syntax
+Packages/Java/Java.sublime-syntax
+Packages/Java/JavaDoc.sublime-syntax
+Packages/Java/JavaProperties.sublime-syntax
+Packages/JavaScript/JavaScript.sublime-syntax
+Packages/JavaScript/JSON.sublime-syntax
+Packages/JavaScript/Regular Expressions (JavaScript).sublime-syntax
+Packages/LaTeX/Bibtex.sublime-syntax
+Packages/LaTeX/LaTeX Beamer.sublime-syntax
+Packages/LaTeX/LaTeX Log.sublime-syntax
+Packages/LaTeX/LaTeX Memoir.sublime-syntax
+Packages/LaTeX/LaTeX.sublime-syntax
+Packages/LaTeX/TeX Math.sublime-syntax
+Packages/LaTeX/TeX.sublime-syntax
+Packages/Lisp/Lisp.sublime-syntax
+Packages/Lua/Lua.sublime-syntax
+Packages/Makefile/Make Output.sublime-syntax
+Packages/Makefile/Makefile.sublime-syntax
+Packages/Markdown/Markdown.sublime-syntax
+Packages/Markdown/MultiMarkdown.sublime-syntax
+Packages/Matlab/Matlab.sublime-syntax
+Packages/Objective-C/Objective-C++.sublime-syntax
+Packages/Objective-C/Objective-C.sublime-syntax
+Packages/OCaml/camlp4.sublime-syntax
+Packages/OCaml/OCaml.sublime-syntax
+Packages/OCaml/OCamllex.sublime-syntax
+Packages/OCaml/OCamlyacc.sublime-syntax
+Packages/Pascal/Pascal.sublime-syntax
+Packages/Perl/Perl.sublime-syntax
+Packages/PHP/PHP Source.sublime-syntax
+Packages/PHP/PHP.sublime-syntax
+Packages/Python/Python.sublime-syntax
+Packages/Python/Regular Expressions (Python).sublime-syntax
+Packages/R/R Console.sublime-syntax
+Packages/R/R.sublime-syntax
+Packages/R/Rd (R Documentation).sublime-syntax
+Packages/Rails/HTML (Rails).sublime-syntax
+Packages/Rails/JavaScript (Rails).sublime-syntax
+Packages/Rails/Ruby Haml.sublime-syntax
+Packages/Rails/Ruby on Rails.sublime-syntax
+Packages/Rails/SQL (Rails).sublime-syntax
+Packages/Regular Expressions/RegExp.sublime-syntax
+Packages/RestructuredText/reStructuredText.sublime-syntax
+Packages/Ruby/Ruby.sublime-syntax
+Packages/Rust/Cargo.sublime-syntax
+Packages/Rust/Rust.sublime-syntax
+Packages/Scala/Scala.sublime-syntax
+Packages/ShellScript/Shell-Unix-Generic.sublime-syntax
+Packages/SQL/SQL.sublime-syntax
+Packages/TCL/HTML (Tcl).sublime-syntax
+Packages/TCL/Tcl.sublime-syntax
+Packages/Textile/Textile.sublime-syntax
+Packages/XML/XML.sublime-syntax
+Packages/YAML/YAML.sublime-syntax

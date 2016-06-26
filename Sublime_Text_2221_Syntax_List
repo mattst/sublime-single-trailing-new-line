@@ -1,0 +1,73 @@
+A list of all the syntaxes from Sublime Text version 2221:
+
+Packages/ActionScript/ActionScript.tmLanguage
+Packages/AppleScript/AppleScript.tmLanguage
+Packages/ASP/ASP.tmLanguage
+Packages/ASP/HTML-ASP.tmLanguage
+Packages/Batch File/Batch File.tmLanguage
+Packages/C#/Build.tmLanguage
+Packages/C#/C#.tmLanguage
+Packages/C++/C++.tmLanguage
+Packages/C++/C.tmLanguage
+Packages/Clojure/Clojure.tmLanguage
+Packages/CSS/CSS.tmLanguage
+Packages/D/D.tmLanguage
+Packages/Diff/Diff.tmLanguage
+Packages/Erlang/Erlang.tmLanguage
+Packages/Erlang/HTML (Erlang).tmLanguage
+Packages/Go/Go.tmLanguage
+Packages/Graphviz/DOT.tmLanguage
+Packages/Groovy/Groovy.tmLanguage
+Packages/Haskell/Haskell.tmLanguage
+Packages/Haskell/Literate Haskell.tmLanguage
+Packages/HTML/HTML.tmLanguage
+Packages/Java/Java Server Pages (JSP).tmLanguage
+Packages/Java/Java.tmLanguage
+Packages/Java/JavaDoc.tmLanguage
+Packages/Java/JavaProperties.tmLanguage
+Packages/JavaScript/JavaScript.tmLanguage
+Packages/JavaScript/JSON.tmLanguage
+Packages/LaTeX/Bibtex.tmLanguage
+Packages/LaTeX/LaTeX Beamer.tmLanguage
+Packages/LaTeX/LaTeX Log.tmLanguage
+Packages/LaTeX/LaTeX Memoir.tmLanguage
+Packages/LaTeX/LaTeX.tmLanguage
+Packages/LaTeX/TeX Math.tmLanguage
+Packages/LaTeX/TeX.tmLanguage
+Packages/Lisp/Lisp.tmLanguage
+Packages/Lua/Lua.tmLanguage
+Packages/Makefile/Makefile.tmLanguage
+Packages/Markdown/Markdown.tmLanguage
+Packages/Markdown/MultiMarkdown.tmLanguage
+Packages/Matlab/Matlab.tmLanguage
+Packages/Objective-C/Objective-C++.tmLanguage
+Packages/Objective-C/Objective-C.tmLanguage
+Packages/OCaml/camlp4.tmLanguage
+Packages/OCaml/OCaml.tmLanguage
+Packages/OCaml/OCamllex.tmLanguage
+Packages/OCaml/OCamlyacc.tmLanguage
+Packages/Perl/Perl.tmLanguage
+Packages/PHP/PHP.tmLanguage
+Packages/Python/Python.tmLanguage
+Packages/Python/Regular Expressions (Python).tmLanguage
+Packages/R/R Console.tmLanguage
+Packages/R/R.tmLanguage
+Packages/R/Rd (R Documentation).tmLanguage
+Packages/Rails/HTML (Rails).tmLanguage
+Packages/Rails/JavaScript (Rails).tmLanguage
+Packages/Rails/Ruby Haml.tmLanguage
+Packages/Rails/Ruby on Rails.tmLanguage
+Packages/Rails/SQL (Rails).tmLanguage
+Packages/Regular Expressions/RegExp.tmLanguage
+Packages/RestructuredText/reStructuredText.tmLanguage
+Packages/Ruby/Ruby.tmLanguage
+Packages/Scala/Scala.tmLanguage
+Packages/ShellScript/Shell-Unix-Generic.tmLanguage
+Packages/SQL/SQL.tmLanguage
+Packages/TCL/HTML (Tcl).tmLanguage
+Packages/TCL/Tcl.tmLanguage
+Packages/Text/Plain text.tmLanguage
+Packages/Textile/Textile.tmLanguage
+Packages/XML/XML.tmLanguage
+Packages/XML/XSL.tmLanguage
+Packages/YAML/YAML.tmLanguage
