@@ -1,6 +1,7 @@
 {
-    "syntax_list": [],
-    "enable_for_all": false
+    "enable_for_all": false,
+
+    "syntax_list": []
 }
 
 //
@@ -10,7 +11,7 @@
 // "Packages/User/SingleTrailingNewLine.sublime-settings"
 //
 // If the "enable_for_all" setting is true the plugin will be active for all
-// all files. Otherwise it will only be active if one of the syntaxes in the
+// files. Otherwise it will only be active if one of the syntaxes in the
 // "syntax_list" matches the syntax of the current file. See example below:
 //
 //    "syntax_list":
