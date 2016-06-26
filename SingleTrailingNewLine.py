@@ -48,6 +48,9 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
     Calls the "single_trailing_new_line" command when a pre-save event occurs
     but only if the plugin has been enabled in the settings file for all files
     or for the syntax of the current file.
+
+    Note: The EventListener class does not implement the is_enabled() method,
+    unlike the TextCommand, ApplicationCommand, and WindowCommand classes.
     """
 
     def on_pre_save(self, view):
@@ -64,28 +67,24 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
 
         This method does not result in a disk file read every time a file is
         saved; the settings are loaded into memory at start-up and when the
-        settings file is modified, thus this plugin is not time expensive.
+        settings file is modified, thus this is not time expensive.
         """
 
-        settings_file = "SingleTrailingNewLine.sublime-settings"
-        settings = sublime.load_settings(settings_file)
+        settings_file  = "SingleTrailingNewLine.sublime-settings"
+        settings       = sublime.load_settings(settings_file)
+        enable_for_all = settings.get("enable_for_all_files", False)
+        syntaxes       = settings.get("syntax_list", [])
 
-        enable_for_all_files = settings.get("enable_for_all_files", False)
-
-        if enable_for_all_files:
+        if enable_for_all:
             return True
 
-        syntax_list = settings.get("syntax_list", [])
-
-        if not isinstance(syntax_list, list) or len(syntax_list) == 0:
+        if not isinstance(syntaxes, list) or len(syntaxes) == 0:
             return False
 
-        current_syntax = view.settings().get("syntax")
+        syntax_current_file = view.settings().get("syntax")
 
-        for syntax in syntax_list:
-            # Partial matches are allowed. For example:
-            # "Java" will match "JavaScript.sublime-syntax"
-            if syntax in current_syntax:
+        for syntax in syntaxes:
+            if syntax in syntax_current_file:
                 return True
 
         return False
@@ -98,7 +97,7 @@ class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
     """
 
     def run(self, edit):
-        """ Called when the TextCommand plugin is run. """
+        """ Called when the plugin is run. """
 
         # Do nothing if the file is empty.
         if self.view.size() < 1:

@@ -1,5 +1,5 @@
 {
-    "syntax_list": ["Python"],
+    "syntax_list": [],
     "enable_for_all_files": false
 }
 
@@ -47,4 +47,3 @@
 //    as would "Packages/Java" but not "Packages/Java/" because the trailing
 //    forward slash would not match "Packages/JavaScript/".
 //
-
