@@ -1,6 +1,6 @@
 {
     "syntax_list": [],
-    "enable_for_all_files": false
+    "enable_for_all": false
 }
 
 //
@@ -9,9 +9,9 @@
 //
 // "Packages/User/SingleTrailingNewLine.sublime-settings"
 //
-// If the "enable_for_all_files" setting is true the plugin will be active for
+// If the "enable_for_all" setting is true the plugin will be active for all
 // all files. Otherwise it will only be active if one of the syntaxes in the
-// "syntax_list" matches the syntax of the current file. Here is an example:
+// "syntax_list" matches the syntax of the current file. See example below:
 //
 //    "syntax_list":
 //    [
@@ -29,14 +29,14 @@
 //
 //         view.settings().get("syntax")
 //
-// The "syntax_list" entries are case sensitive and wildcards can not be used.
+// Sublime Text v3 uses: ".sublime-syntax" or ".tmLanguage" syntax files.
+// Sublime Text v2 uses: ".tmLanguage" syntax files only.
 //
-// Text Mate compatible ".tmLanguage" syntaxes are, of course, acceptable.
-// e.g. "Packages/Python Improved/PythonImproved.tmLanguage".
+// The "syntax_list" entries are case sensitive and wildcards can not be used.
 //
 // It is generally advisable to use the full syntax name in the "syntax_list"
 // entries (as shown by the example "syntax_list" above) but a partial syntax
-// name is also acceptable, e.g. "XML.sublime-syntax". Note that this means:
+// name is also acceptable, e.g. "XML.sublime-syntax". Note the following:
 //
 // a) "C.sublime-syntax" also matches "Objective-C.sublime-syntax".
 //

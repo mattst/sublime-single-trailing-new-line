@@ -15,9 +15,9 @@
 # Settings Fields:    "syntax_list": a list of Sublime Text syntaxes which
 #                     enable the plugin.
 #
-#                     "enable_for_all_files": boolean to control whether the
-#                     plugin should be run for all files or not. If set to
-#                     true then the "syntax_list" setting is ignored.
+#                     "enable_for_all": boolean to control whether the plugin
+#                     should be run for all files or not. If set to true then
+#                     the "syntax_list" setting is ignored.
 #
 # Optional Command:   single_trailing_new_line (ignores settings file).
 #
@@ -29,9 +29,9 @@
 #
 # 1) The plugin can be run automatically every time a file is saved. For this
 #    various settings in the settings file can be set. To enable it for all
-#    files, set the "enable_for_all_files" setting to true. To enable it only
-#    for files of specific syntaxes, add the syntax names to the "syntax_list"
-#    setting. The console command - view.settings().get("syntax") - can be used
+#    files, set the "enable_for_all" setting to true. To enable it only for
+#    files of specific syntaxes, add the syntax names to the "syntax_list"
+#    setting. The console command - view.settings().get("syntax") - can be run
 #    to get the full syntax name of the current file.
 #
 # 2) The command "single_trailing_new_line" can be used by assigning it to a key
@@ -62,7 +62,7 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
     def is_plugin_enabled(self, view):
         """
         Controls whether or not the plugin should run. True is returned if the
-        "enable_for_all_files" setting is true and for files whose syntax name
+        "enable_for_all" setting is true and for files whose syntax name
         has a match in the "syntax_list" setting, otherwise false.
 
         This method does not result in a disk file read every time a file is
@@ -72,18 +72,18 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
 
         settings_file  = "SingleTrailingNewLine.sublime-settings"
         settings       = sublime.load_settings(settings_file)
-        enable_for_all = settings.get("enable_for_all_files", False)
-        syntaxes       = settings.get("syntax_list", [])
+        enable_for_all = settings.get("enable_for_all", False)
+        syntax_list    = settings.get("syntax_list", [])
 
         if enable_for_all:
             return True
 
-        if not isinstance(syntaxes, list) or len(syntaxes) == 0:
+        if not isinstance(syntax_list, list) or len(syntax_list) == 0:
             return False
 
         syntax_current_file = view.settings().get("syntax")
 
-        for syntax in syntaxes:
+        for syntax in syntax_list:
             if syntax in syntax_current_file:
                 return True
 
