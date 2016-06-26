@@ -22,7 +22,7 @@ This package has been submitted to [Package Control](http://packagecontrol.io) a
 
 #### Manual Installation
 
-Download the [ZIP file](master.zip) and extract it or use `git clone` to get the files from its [GitHub page](add link here). Then move the package's folder to your Sublime Text config `Packages` directory renaming it to `SingleTrailingNewLine` or to something else if you prefer.
+Download the [ZIP file](https://github.com/mattst/sublime-single-trailing-new-line/archive/master.zip) and extract it or use `git clone` to get the files from its [GitHub page](https://github.com/mattst/sublime-single-trailing-new-line). Then move the package's folder to your Sublime Text config `Packages` directory renaming it to `SingleTrailingNewLine` or to something else if you prefer.
 
 ### Setup and Usage
 
@@ -52,7 +52,7 @@ It can be enabled for either all files or for only files of specific syntaxes.
 
 To enable it the settings in the settings file `SingleTrailingNewLine.sublime-settings` must be changed since running automatically is disabled by default.
 
-If this package has been installed using *Package Control* then you will need to create a `SingleTrailingNewLine.sublime-settings` file typically in the `Packages/User/` folder. The easiest way to do this is to download the package's default settings file from its GitHub page: [Direct link to: SingleTrailingNewLine.sublime-settings](Link to add here).
+If this package has been installed using *Package Control* then you will need to create a `SingleTrailingNewLine.sublime-settings` file typically in the `Packages/User/` folder. The easiest way to do this is to download the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) from its [GitHub page](https://github.com/mattst/sublime-single-trailing-new-line).
 
 There are 2 settings available:
 
@@ -104,7 +104,7 @@ To get the full syntax name of the current file's syntax simply enter the follow
 
      view.settings().get("syntax")
 
-This package also includes a full list of the syntaxes available by default in Sublime Text v2 and v3. [Direct link to: Sublime Text v2 Syntax List](Sublime_Text_2221_Syntax_List), [Direct link to: Sublime Text v3 Syntax List](Sublime_Text_3114_Syntax_List)
+For reference use only, this package also includes a full list of the syntaxes available by default in Sublime Text [version 2](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_2221_Syntax_List) and [version 3](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_3114_Syntax_List).
 
 The `syntax_list` entries are case sensitive and wildcards can not be used.
 
@@ -120,4 +120,4 @@ The following should be noted:
 
 ### License
 
-This plugin is licensed under The MIT License (MIT), see the LICENSE file.
+This plugin is licensed under The MIT License (MIT), see the [LICENSE file](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/LICENSE).
