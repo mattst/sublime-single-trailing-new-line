@@ -40,9 +40,11 @@ Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system)
 
 #### Command Palette
 
-When run from the command palette the plugin will work with all files, the settings file will be ignored.
+2 command palette commands are added by the package:
 
-The `Single Trailing New Line` command palette entry will be available if either of the installation instructions have been followed. 
+- `Single Trailing New Line` - when run from the command palette the plugin will work with all files, the settings file will be ignored.
+
+- `Copy Syntax Name` - copies the full syntax name of the current file into the clipboard. This is to help users to quickly get full syntax names for use in the settings file.
 
 #### Running Automatically
 
@@ -98,13 +100,11 @@ Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Tex
         ]
     }
 
-To get the full syntax name of the current file's syntax simply enter the following command in the Sublime Text console:
-
-     view.settings().get("syntax")
+The full syntax name of the current file's syntax can be copied into the clipboard by entering `Copy Syntax Name` in the command palette. It can also be retrieved by using the `view.settings().get("syntax")` command in the Sublime Text console.
 
 The `syntax_list` entries are case sensitive and wildcards can not be used.
 
-It is generally advisable to use the full syntax name in the `syntax_list` entries (as shown in the examples above) but partial syntax names are also acceptable, e.g. `"XML.sublime-syntax"`. 
+It is generally advisable to use the full syntax name in the `syntax_list` entries (as shown in the examples above) but partial syntax names are also acceptable, e.g. `"XML.sublime-syntax"`.
 
 The following should be noted:
 
