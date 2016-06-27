@@ -58,11 +58,11 @@ There are 2 settings available:
 
 - `enable_for_all` - *true/false*. If this is set to true the plugin will be active for all files, every time any file is saved the plugin will be run. If this is set to false the plugin will examine the `syntax_list` setting.
 
-- `syntax_list` - *a list*. If syntax names are added to this list, the plugin will only be run when the syntax of the current file matches one of the syntaxes in the `syntax_list`.
+- `syntax_list` - *a list*. If syntax names are added to this list, the plugin will only be run when the syntax of the current file matches one of the syntaxes in `syntax_list`.
 
-Here is an example Sublime Text v3 `SingleTrailingNewLine.sublime-settings` file:
+Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format; however `.tmLanguage` syntax files are still compatible and will be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use `.tmLanguage` syntax files.
 
-*Note: Sublime Text v3 can use ".sublime-syntax" and ".tmLanguage" syntax files; the latter will only be available if a syntax package that includes them has been installed. e.g. `PythonImproved` below.*
+Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Text v3 builds from 3084 onwards:
 
     {
         "enable_for_all": false,
@@ -80,9 +80,7 @@ Here is an example Sublime Text v3 `SingleTrailingNewLine.sublime-settings` file
         ]
     }
 
-Here is an example Sublime Text v2 `SingleTrailingNewLine.sublime-settings` file:
-
-*Note: Sublime Text v2 can only use ".tmLanguage" syntax files.*
+Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Text v2 and v3 builds earlier than 3084:
 
     {
         "enable_for_all": false,
