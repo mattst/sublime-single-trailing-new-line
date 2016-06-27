@@ -44,7 +44,7 @@ Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system)
 
 - `Single Trailing New Line` - when run from the command palette the plugin will work with all files, the settings file will be ignored.
 
-- `Copy Syntax Name` - copies the full syntax name of the current file into the clipboard. This is to help users to quickly get full syntax names for use in the settings file.
+- `Copy Syntax Name` - copies the full syntax name of the current file into the clipboard. This is to help users get full syntax names quickly (for use in the settings file).
 
 #### Running Automatically
 
