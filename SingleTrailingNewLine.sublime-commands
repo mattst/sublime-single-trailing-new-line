@@ -1,3 +1,4 @@
 [
-    { "caption": "Single Trailing New Line", "command": "single_trailing_new_line" }
+    { "caption": "Single Trailing New Line", "command": "single_trailing_new_line" },
+    { "caption": "Copy Syntax Name", "command": "copy_syntax_name" }
 ]

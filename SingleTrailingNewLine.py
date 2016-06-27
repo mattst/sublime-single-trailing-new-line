@@ -1,42 +1,14 @@
 
 #
-# Name:               Single Trailing New Line
+# Name:          Single Trailing New Line
 #
-# Requirements:       Plugin for Sublime Text v2 and v3
+# Requirements:  Sublime Text v2 and v3
 #
-# Written by:         mattst - https://github.com/mattst
+# Written by:    mattst - https://github.com/mattst
+# 
+# Homepage:      https://github.com/mattst/sublime-single-trailing-new-line
 #
-# License:            MIT License
-#
-# Plugin File:        SingleTrailingNewLine.py
-#
-# Settings File:      SingleTrailingNewLine.sublime-settings
-#
-# Settings Fields:    "syntax_list": a list of Sublime Text syntaxes which
-#                     enable the plugin.
-#
-#                     "enable_for_all": boolean to control whether the plugin
-#                     should be run for all files or not. If set to true then
-#                     the "syntax_list" setting is ignored.
-#
-# Optional Command:   single_trailing_new_line (ignores settings file).
-#
-# This Sublime Text plugin makes sure that there is exactly one trailing newline
-# at the end of a file. It works by deleting all the whitespace and newlines at
-# the end of the file and then inserting a single newline.
-#
-# The plugin can be run in one of 2 ways (or both):
-#
-# 1) The plugin can be run automatically every time a file is saved. For this
-#    various settings in the settings file can be set. To enable it for all
-#    files, set the "enable_for_all" setting to true. To enable it only for
-#    files of specific syntaxes, add the syntax names to the "syntax_list"
-#    setting. The console command - view.settings().get("syntax") - can be run
-#    to get the full syntax name of the current file.
-#
-# 2) The command "single_trailing_new_line" can be used by assigning it to a key
-#    binding or by creating a command palette entry for it. When this is done
-#    the settings file is ignored and the command will work with all files.
+# License:       MIT License
 #
 
 
@@ -62,8 +34,8 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
     def is_plugin_enabled(self, view):
         """
         Controls whether or not the plugin should run. True is returned if the
-        "enable_for_all" setting is true and for files whose syntax name
-        has a match in the "syntax_list" setting, otherwise false.
+        "enable_for_all" setting is true and for files whose syntax name has a
+        match in the "syntax_list" setting, otherwise false.
 
         This method does not result in a disk file read every time a file is
         saved; the settings are loaded into memory at start-up and when the
@@ -115,3 +87,13 @@ class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
         erase_region = sublime.Region(pos + 1, self.view.size())
         self.view.erase(edit, erase_region)
         self.view.insert(edit, self.view.size(), "\n")
+
+
+class CopySyntaxNameCommand(sublime_plugin.TextCommand):
+    """ Copies the current file's syntax name into the clipboard. """
+
+    def run(self, edit):
+        """ Called when the plugin is run. """
+
+        syntax_current_file = self.view.settings().get("syntax") 
+        sublime.set_clipboard(syntax_current_file)
