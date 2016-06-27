@@ -102,8 +102,6 @@ To get the full syntax name of the current file's syntax simply enter the follow
 
      view.settings().get("syntax")
 
-For reference use only, this package also includes lists of the Sublime Text syntaxes available by default: [Sublime Text v2 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_2221_Syntax_List) and [Sublime Text v3 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_3114_Syntax_List).
-
 The `syntax_list` entries are case sensitive and wildcards can not be used.
 
 It is generally advisable to use the full syntax name in the `syntax_list` entries (as shown in the examples above) but partial syntax names are also acceptable, e.g. `"XML.sublime-syntax"`. 
@@ -115,6 +113,12 @@ The following should be noted:
 - All of the syntaxes in a package can be matched by using just the path. e.g. `"Packages/Rails/"` would match all 5 syntaxes from the `Rails` package, i.e. `"Packages/Rails/Ruby on Rails.sublime-syntax"` as well as the other 4.
 
 - Using just `"Java"` would match all 7 syntaxes from the `Java` and `JavaScript` packages, as would `"Packages/Java"` but not `"Packages/Java/"` because the trailing forward slash would not match `"Packages/JavaScript/"`.
+
+For reference use only, this package also includes 2 lists of the Sublime Text built-in syntaxes:
+
+- [Sublime Text v2 build 2221 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_2221_Syntax_List)
+- [Sublime Text v3 build 3114 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_3114_Syntax_List)
+- Those using Sublime Text v3 builds earlier than 3084 should use the v2 list.
 
 ### License
 
