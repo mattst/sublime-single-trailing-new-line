@@ -1,50 +1,49 @@
 {
+    //  Single Trailing New Line Plugin Settings
+    //
+    // Changing these settings from their default values allows the plugin to be
+    // run automatically every time a file is saved. The plugin makes sure that
+    // there is exactly one trailing newline at the end of the file.
+    //
+    // If the "enable_for_all" setting is set to true the plugin will be enabled
+    // for all files, regardless of their syntax. The "syntax_list" setting will
+    // be only be examined if the "enable_for_all" setting is set to false.
+    //
+    // If the "syntax_list" setting contains a list of one or more syntax names
+    // then the plugin will be enabled for all files with matching syntaxes.
+
     "enable_for_all": false,
 
     "syntax_list": []
 }
 
 //
-// The settings file should be placed somewhere in the user's Sublime Text
-// packages folder hierarchy. Its path would typically be:
+// Users are urged to read the "Running Automatically" section on the plugin's
+// home page (link below) which has information and tips about configuring the
+// "syntax_list" setting.
 //
-// "Packages/User/SingleTrailingNewLine.sublime-settings"
+//          https://github.com/mattst/sublime-single-trailing-new-line
 //
-// If the "enable_for_all" setting is true the plugin will be active for all
-// files. Otherwise it will only be active if one of the syntaxes in the
-// "syntax_list" matches the syntax of the current file. See example below:
+// Sublime Text v3 (build 3084+) example settings file:
 //
-//    "syntax_list":
-//    [
-//        "Packages/C++/C.sublime-syntax",
-//        "Packages/C++/C++.sublime-syntax",
-//        "Packages/Java/Java.sublime-syntax",
-//        "Packages/JavaScript/JSON.sublime-syntax",
-//        "Packages/Python/Python.sublime-syntax",
-//        "Packages/Python Improved/PythonImproved.tmLanguage",
-//        "Packages/XML/XML.sublime-syntax"
-//    ]
+// {
+//     "enable_for_all": false,
+//
+//     "syntax_list":
+//     [
+//         "Packages/C++/C.sublime-syntax",
+//         "Packages/C++/C++.sublime-syntax",
+//         "Packages/Java/Java.sublime-syntax",
+//         "Packages/JavaScript/JSON.sublime-syntax",
+//         "Packages/Python/Python.sublime-syntax",
+//         "Packages/Python Improved/PythonImproved.tmLanguage",
+//         "Packages/Rails/",
+//         "Packages/XML/XML.sublime-syntax"
+//     ]
+// }
 //
 // To get the full syntax name of the current file's syntax simply enter the
 // following command in the Sublime Text console:
 //
 //         view.settings().get("syntax")
-//
-// Sublime Text v3 uses: ".sublime-syntax" or ".tmLanguage" syntax files.
-// Sublime Text v2 uses: ".tmLanguage" syntax files only.
-//
-// The "syntax_list" entries are case sensitive and wildcards can not be used.
-//
-// It is generally advisable to use the full syntax name in the "syntax_list"
-// entries (as shown by the example "syntax_list" above) but a partial syntax
-// name is also acceptable, e.g. "XML.sublime-syntax". Note the following:
-//
-// a) "C.sublime-syntax" also matches "Objective-C.sublime-syntax".
-//
-// b) All of the syntaxes in a package can be enabled by using just the path.
-//    e.g. "Packages/Rails/" enables all 5 syntaxes from the Rails package.
-//
-// c) "Java" matches all 7 syntaxes from the Java and JavaScript packages,
-//    as would "Packages/Java" but not "Packages/Java/" because the trailing
-//    forward slash would not match "Packages/JavaScript/".
 //
