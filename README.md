@@ -54,7 +54,7 @@ Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system)
 
 #### Running Automatically
 
-The plugin will be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline. This is disabled by default.
+The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline. This is disabled by default.
 
 It can be enabled for either all files or for only files of specific syntaxes. To enable it the settings in the settings file `SingleTrailingNewLine.sublime-settings` must be changed.
 
@@ -64,7 +64,7 @@ There are 2 settings available:
 
 - `enable_for_all_syntaxes` - *true/false*. If set to true the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. If set to false the plugin will examine the `enable_for_syntaxes_list` setting.
 
-- `enable_for_syntaxes_list` - *a list*. If syntax names are added to this list, the plugin will only be run when the syntax of the current file matches one of the syntax names.
+- `enable_for_syntaxes_list` - *a list*. If syntax names are added to this list, the plugin will be run when a file whose syntax matches one of the syntax names is saved.
 
 Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format; however `.tmLanguage` syntax files are still compatible and will be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use `.tmLanguage` syntax files.
 
@@ -114,11 +114,11 @@ In fact any case sensitive substring match will work, e.g. `"C++", "Java", "Pyth
 
 The following tips should be noted:
 
-- Be careful: `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`.
+- `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`.
 
 - All of the syntaxes in a package can be matched by using just the path. e.g. `"Packages/Rails/"` would match all 5 syntaxes from the `Rails` package, i.e. `"Packages/Rails/Ruby on Rails.sublime-syntax"` as well as the other 4.
 
-- Using just `"Java"` would match all 7 syntaxes from the `Java` and `JavaScript` packages, as would `"Packages/Java"` but not `"Packages/Java/"` because the trailing forward slash would not match `"Packages/JavaScript/"`.
+- Using just `"Java"` would match all 7 syntaxes from the `Java` and `JavaScript` packages, as would `"Packages/Java"` but not `"Packages/Java/"` because the trailing slash would not match `"Packages/JavaScript/"`.
 
 - Using just `"HTML"` would match syntaxes from the following packages `ASP`, `Erlang`, `Rails`, and `TCL` as well as the `HTML` package which may have been the only one intended.
 
