@@ -1,7 +1,9 @@
 
 ## Single Trailing New Line - Plugin for Sublime Text
 
-This Sublime Text plugin makes sure that there is exactly one trailing newline at the end of a file. It works by deleting all the whitespace and newlines at the end of the file and then inserting a single newline.
+This Sublime Text plugin makes sure that there is exactly one trailing newline at the end of a file. It works by deleting all the whitespace and newlines at the end of the file (if there are any) and then inserting a single newline.
+
+*Note that this is different from the `ensure_newline_at_eof_on_save` setting which makes sure that there is at least one trailing newline at the end of the file rather than making sure that there is exactly one trailing newline.*
 
 The plugin can be run in various ways:
 
