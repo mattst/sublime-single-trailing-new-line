@@ -5,7 +5,7 @@
 # Requirements:  Sublime Text v2 and v3
 #
 # Written by:    mattst - https://github.com/mattst
-# 
+#
 # Homepage:      https://github.com/mattst/sublime-single-trailing-new-line
 #
 # License:       MIT License
@@ -34,8 +34,9 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
     def is_plugin_enabled(self, view):
         """
         Controls whether or not the plugin should run. True is returned if the
-        "enable_for_all" setting is true and for files whose syntax name has a
-        match in the "syntax_list" setting, otherwise false.
+        "enable_for_all_syntaxes" setting is true and for files whose syntax
+        name has a match in the "enable_for_syntaxes_list" setting, otherwise
+        false is returned.
 
         This method does not result in a disk file read every time a file is
         saved; the settings are loaded into memory at start-up and when the
@@ -44,8 +45,8 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
 
         settings_file  = "SingleTrailingNewLine.sublime-settings"
         settings       = sublime.load_settings(settings_file)
-        enable_for_all = settings.get("enable_for_all", False)
-        syntax_list    = settings.get("syntax_list", [])
+        enable_for_all = settings.get("enable_for_all_syntaxes", False)
+        syntax_list    = settings.get("enable_for_syntaxes_list", [])
 
         if enable_for_all:
             return True
@@ -95,5 +96,5 @@ class CopySyntaxNameCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         """ Called when the plugin is run. """
 
-        syntax_current_file = self.view.settings().get("syntax") 
+        syntax_current_file = self.view.settings().get("syntax")
         sublime.set_clipboard(syntax_current_file)

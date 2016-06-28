@@ -1,35 +1,34 @@
 {
     //  Single Trailing New Line Package Settings
-    //
-    // Changing these settings from their default values allows the plugin to be
-    // run automatically every time a file is saved. The plugin makes sure that
-    // there is exactly one trailing newline at the end of the file.
-    //
-    // If the "enable_for_all" setting is set to true the plugin will be enabled
-    // for all files, regardless of their syntax. The "syntax_list" setting will
-    // be only be examined if the "enable_for_all" setting is set to false.
-    //
-    // If the "syntax_list" setting contains a list of one or more syntax names
-    // then the plugin will be enabled for all files with matching syntaxes.
 
-    "enable_for_all": false,
+    // Changing these settings from their default values allows the plugin to
+    // be run automatically every time a file is saved. The plugin makes sure
+    // that there is exactly one trailing newline at the end of the file.
 
-    "syntax_list": []
+    // Setting: enable_for_all_syntaxes - default: false
+    // true:  enable the plugin for all files, regardless of their syntax.
+    // false: enable the plugin for the syntaxes in: enable_for_syntaxes_list
+    "enable_for_all_syntaxes": false,
+
+    // Setting: enable_for_syntaxes_list - default: [] (an empty list)
+    // If this setting contains a list of one or more syntax names then the
+    // plugin will be enabled for all files with matching syntaxes.
+    "enable_for_syntaxes_list": []
 }
 
 //
 // Users are urged to read the "Running Automatically" section on the plugin's
 // home page (link below) which has information and tips about configuring the
-// "syntax_list" setting.
+// "enable_for_syntaxes_list" setting.
 //
 //          https://github.com/mattst/sublime-single-trailing-new-line
 //
 // Sublime Text v3 (build 3084+) example settings file:
 //
 // {
-//     "enable_for_all": false,
+//     "enable_for_all_syntaxes": false,
 //
-//     "syntax_list":
+//     "enable_for_syntaxes_list":
 //     [
 //         "Packages/C++/C.sublime-syntax",
 //         "Packages/C++/C++.sublime-syntax",
