@@ -9,7 +9,7 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 - The plugin can be set to run automatically every time a file is saved. This is disabled by default but by changing the settings it can be enabled either for all files or for only files of specific syntaxes.
 
-- The plugin can be used by assigning it to a key binding or by using its command palette entry. In both these cases the settings file is ignored and the plugin will work with all files.
+- The plugin can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and the plugin will work with all files.
 
 - A command palette entry that copies the full syntax name of the current file into the clipboard. This is to help users to get full syntax names quickly (for use in the settings file).
 
