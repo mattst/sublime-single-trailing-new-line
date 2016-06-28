@@ -1,15 +1,15 @@
 
-## Single Trailing New Line - Plugin for Sublime Text
+## Single Trailing New Line - Package for Sublime Text
 
-This Sublime Text plugin makes sure that there is exactly one trailing newline at the end of a file. It works by deleting all the whitespace and newlines at the end of the file (if there are any) and then inserting a single newline.
+This Sublime Text package makes sure that there is exactly one trailing newline at the end of a file. It works by deleting all the whitespace and newlines at the end of the file (if there are any) and then inserting a single newline.
 
 Note: This is different from the `ensure_newline_at_eof_on_save` setting which makes sure that there is *at least one trailing newline* at the end of the file, rather than making sure that there is *exactly one trailing newline* at the end of the file.
 
 ### Features
 
-- The plugin can be set to run automatically every time a file is saved. This is disabled by default but by changing the settings it can be enabled either for all files or for only files of specific syntaxes.
+- It can be set to run automatically every time a file is saved. This is disabled by default but by changing the settings it can be enabled either for all files or for only files of specific syntaxes.
 
-- The plugin can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and the plugin will work with all files.
+- It can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
 
 - A command palette entry that copies the full syntax name of the current file into the clipboard. This is to help users to get full syntax names quickly (for use in the settings file).
 
@@ -30,7 +30,15 @@ Download the [ZIP file](https://github.com/mattst/sublime-single-trailing-new-li
 
 ### Setup and Usage
 
-This plugin has always been intended to be run automatically when a file is saved, rather than by manually launching it with a key binding or from the command palette. However some users may prefer to run the plugin manually on an as-needed basis, or to have that option available for syntaxes they have not added in the settings.
+This plugin has always been intended to be run automatically when a file is saved, rather than by manually running it from the command palette or with a key binding. However some users may prefer to run it manually on an as-needed basis, or to have that option available for syntaxes they have not added in the settings.
+
+#### Command Palette
+
+The package includes 2 command palette commands:
+
+- `Single Trailing New Line` - ensure there is exactly one trailing newline at the end of the file. When run from the command palette the plugin will work with all files, the settings file will be ignored.
+
+- `Copy Syntax Name` - copies the full syntax name of the current file into the clipboard. This is to help users to get full syntax names quickly (for use in the settings file).
 
 #### Key Binding
 
@@ -43,14 +51,6 @@ Add the key binding of your choice to your user key bindings file (`Menu --> Pre
 There are now so many Sublime Text packages available that key conflicts are commonplace, it is therefore best for users to decide their own keys for small plugins like this one.
 
 Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system).
-
-#### Command Palette
-
-2 command palette commands are added by the package:
-
-- `Single Trailing New Line` - when run from the command palette the plugin will work with all files, the settings file will be ignored.
-
-- `Copy Syntax Name` - copies the full syntax name of the current file into the clipboard. This is to help users to get full syntax names quickly (for use in the settings file).
 
 #### Running Automatically
 
