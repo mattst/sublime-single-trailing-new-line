@@ -64,7 +64,7 @@ There are 2 settings available:
 
 - `enable_for_all` - *true/false*. If this is set to true the plugin will be active for all files, every time any file is saved the plugin will be run. If this is set to false the plugin will examine the `syntax_list` setting.
 
-- `syntax_list` - *a list*. If syntax names are added to this list, the plugin will only be run when the syntax of the current file matches one of the syntaxes in `syntax_list`.
+- `syntax_list` - *a list*. If syntax names are added to this list, the plugin will only be run when the syntax of the current file matches one of the syntax names.
 
 Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format; however `.tmLanguage` syntax files are still compatible and will be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use `.tmLanguage` syntax files.
 
@@ -106,9 +106,11 @@ Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Tex
 
 The full syntax name of the current file's syntax can be copied into the clipboard by entering `Copy Syntax Name` in the command palette. It can also be retrieved by using the `view.settings().get("syntax")` command in the Sublime Text console.
 
-The `syntax_list` entries are case sensitive and wildcards can not be used.
+The `syntax_list` entries are *case sensitive* and neither *regular expressions* nor *wildcards* are accepted.
 
 It is generally advisable to use the full syntax name in the `syntax_list` entries (as shown in the examples above) but partial syntax names are also acceptable, e.g. `"XML.sublime-syntax"`.
+
+In fact any case sensitive substring match will work, e.g. `"C++", "Java", "Python", "Rails", "XML"` would match all of the syntaxes shown in the examples above but would also match a whole lot more.
 
 The following tips should be noted:
 
@@ -117,6 +119,8 @@ The following tips should be noted:
 - All of the syntaxes in a package can be matched by using just the path. e.g. `"Packages/Rails/"` would match all 5 syntaxes from the `Rails` package, i.e. `"Packages/Rails/Ruby on Rails.sublime-syntax"` as well as the other 4.
 
 - Using just `"Java"` would match all 7 syntaxes from the `Java` and `JavaScript` packages, as would `"Packages/Java"` but not `"Packages/Java/"` because the trailing forward slash would not match `"Packages/JavaScript/"`.
+
+- Using just `"HTML"` would match syntaxes from the following packages `ASP`, `Erlang`, `Rails`, and `TCL` as well as the `HTML` package which may have been the only one intended.
 
 For reference use only, this package also includes 2 lists of Sublime Text built-in syntaxes:
 
