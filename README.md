@@ -30,7 +30,7 @@ Download the [ZIP file](https://github.com/mattst/sublime-single-trailing-new-li
 
 ### Setup and Usage
 
-This plugin has always been intended to be run automatically when a file is saved, rather than by manually running it from the command palette or with a key binding. However some users may prefer to run it manually on an as-needed basis, or to have that option available for syntaxes they have not added in the settings.
+This plugin was designed to be run automatically when a file is saved, rather than by manually running it from the command palette or with a key binding. However some users may prefer to run it manually on an as-needed basis, or to have that option available for syntaxes they have not added in the settings.
 
 #### Command Palette
 
