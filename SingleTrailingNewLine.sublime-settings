@@ -43,7 +43,7 @@
 // }
 //
 // How to get the full syntax name of the current file's syntax:
-// 
+//
 // 1) The Single Trailing New Line package adds a command to copy the syntax
 //    name into the clipboard. In the command palette use: "Copy Syntax Name"
 //
