@@ -26,7 +26,7 @@ This package has been submitted to [Package Control](http://packagecontrol.io) a
 
 #### Manual Installation
 
-Download the [ZIP file](https://github.com/mattst/sublime-single-trailing-new-line/archive/master.zip) and extract it or use `git clone` to get the files from its [GitHub page](https://github.com/mattst/sublime-single-trailing-new-line). Then move the package's folder to your Sublime Text config `Packages` directory renaming it (for neatness) from `sublime-single-trailing-new-line-master` to `SingleTrailingNewLine` or to something else if you prefer.
+Download the [ZIP file](https://github.com/mattst/sublime-single-trailing-new-line/archive/master.zip) and extract it or use `git clone` to get the files from its [GitHub page](https://github.com/mattst/sublime-single-trailing-new-line). Then move the package's folder to your Sublime Text config `Packages` directory renaming it (for neatness) from `sublime-single-trailing-new-line-master` to `SingleTrailingNewLine` or to something else if you prefer. e.g. `Packages/SingleTrailingNewLine/`.
 
 ### Setup and Usage
 
