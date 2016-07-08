@@ -54,15 +54,13 @@ Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system)
 
 #### Running Automatically
 
-The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline. This is disabled by default. It can be enabled for either all files or for only files of specific syntaxes. To enable it, the settings in the package's settings file must be changed. e.g.
+The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline. This is disabled by default. It can be enabled for either all files or for only files of specific syntaxes. To enable it, the default settings in the package's settings file must be changed.
 
-- Installed using *Package Control* with Sublime Text v3 - *create the following file*:
-    - `Packages/User/SingleTrailingNewLine.sublime-settings`
+Most users will need to create the settings file; its location in your Sublime Text config `Packages` directory should be:
 
-- Installed using *Package Control* with Sublime Text v2 or manually installed - *edit the existing file*:
-    - `Packages/SingleTrailingNewLine/SingleTrailingNewLine.sublime-settings`
+    Packages/User/SingleTrailingNewLine.sublime-settings
 
-Most users will need to create the settings file; saving the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) is an easy way to do so.
+Saving the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) to that location is an easy way to create the settings file.
 
 There are 2 settings available:
 
@@ -70,7 +68,7 @@ There are 2 settings available:
 
 - `enable_for_syntaxes_list` - *a list*. If syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: [] - *an empty list*
 
-Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format; however `.tmLanguage` syntax files are still compatible and will be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use `.tmLanguage` syntax files.
+Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the sole exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use just `.tmLanguage` syntax files.
 
 Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Text v3 builds from 3084 onwards:
 
