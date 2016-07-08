@@ -1,7 +1,7 @@
 
 ## Single Trailing New Line - Package for Sublime Text
 
-This Sublime Text package makes sure that there is exactly one trailing newline at the end of a file. It works by deleting all the whitespace and newlines at the end of the file (if there are any) and then inserting a single newline.
+This Sublime Text package makes sure that there is exactly one trailing newline at the end of a file and no additional whitespace. All the whitespace and trailing newlines at the end of the file (if any) are removed and a single newline is inserted.
 
 Note: This is different from the `ensure_newline_at_eof_on_save` setting which makes sure that there is *at least one trailing newline* at the end of the file, rather than making sure that there is *exactly one trailing newline* at the end of the file.
 
@@ -11,12 +11,12 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 - It can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
 
-- A command palette entry that copies the full syntax name of the current file into the clipboard. This is to help users to get full syntax names quickly (for use in the settings file).
+- A command palette entry that copies the full syntax name of the current file into the clipboard. This is to help users to get full syntax names quickly and easily (for use in the settings file).
 
 ### Requirements
 
 - Sublime Text v2 or v3
-- Tested with: v2 build 2221 and v3 build 3114
+- Tested with: v2 build 2221 and v3 builds 3114 and 3083
 
 ### Installation Instructions
 
@@ -54,17 +54,20 @@ Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system)
 
 #### Running Automatically
 
-The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline. This is disabled by default.
+The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline. This is disabled by default. It can be enabled for either all files or for only files of specific syntaxes. To enable it, the settings in the package's settings file must be changed. e.g.
 
-It can be enabled for either all files or for only files of specific syntaxes. To enable it the settings in the settings file `SingleTrailingNewLine.sublime-settings` must be changed.
+- Installed using *Package Control* with Sublime Text v3 - *create the file*:
+    - `Packages/User/SingleTrailingNewLine.sublime-settings`
+- Installed using *Package Control* with Sublime Text v2 or manually installed - *edit the existing file*:
+    - `Packages/SingleTrailingNewLine/SingleTrailingNewLine.sublime-settings`
 
-If this package has been installed using *Package Control* then you will need to create a `SingleTrailingNewLine.sublime-settings` file typically in the `Packages/User/` folder. The easiest way to do this is to download the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) from its [GitHub page](https://github.com/mattst/sublime-single-trailing-new-line).
+Most users will need to create the settings file; saving the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) is an easy way to do so.
 
 There are 2 settings available:
 
-- `enable_for_all_syntaxes` - *true/false*. If set to true the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. If set to false the plugin will examine the `enable_for_syntaxes_list` setting.
+- `enable_for_all_syntaxes` - *true/false*. If set to true the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. Only if it is set to false will the plugin look at the `enable_for_syntaxes_list` setting. Default: *false*
 
-- `enable_for_syntaxes_list` - *a list*. If syntax names are added to this list, the plugin will be run when a file whose syntax matches one of the syntax names is saved.
+- `enable_for_syntaxes_list` - *a list*. If syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: [] - *an empty list*
 
 Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format; however `.tmLanguage` syntax files are still compatible and will be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use `.tmLanguage` syntax files.
 
@@ -106,13 +109,13 @@ Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Tex
 
 The full syntax name of the current file's syntax can be copied into the clipboard by entering `Copy Syntax Name` in the command palette. It can also be retrieved by using the `view.settings().get("syntax")` command in the Sublime Text console.
 
-The `enable_for_syntaxes_list` entries are *case sensitive* and neither *regular expressions* nor *wildcards* are accepted.
+The following information should be noted:
 
-It is generally advisable to use the full syntax name in the `enable_for_syntaxes_list` entries (as shown in the examples above) but partial syntax names are also acceptable, e.g. `"XML.sublime-syntax"`.
+- The `enable_for_syntaxes_list` entries are *case sensitive* and neither *regular expressions* nor *wildcards* are accepted.
 
-In fact any case sensitive substring match will work, e.g. `"C++", "Java", "Python", "Rails", "XML"` would match all of the syntaxes shown in the examples above but would also match a whole lot more.
+- It is generally advisable to use the full syntax name in the `enable_for_syntaxes_list` entries, as shown in the example settings files, but partial syntax names are also acceptable, e.g. `"XML.sublime-syntax"`.
 
-The following tips should be noted:
+- Any case sensitive substring match will work, e.g. `"C++", "Java", "Python", "Rails", "XML"` would match all of the syntaxes shown in the examples settings files but would also match a whole lot more.
 
 - `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`.
 
@@ -120,9 +123,9 @@ The following tips should be noted:
 
 - Using just `"Java"` would match all 7 syntaxes from the `Java` and `JavaScript` packages, as would `"Packages/Java"` but not `"Packages/Java/"` because the trailing slash would not match `"Packages/JavaScript/"`.
 
-- Using just `"HTML"` would match syntaxes from the following packages `ASP`, `Erlang`, `Rails`, and `TCL` as well as the `HTML` package which may have been the only one intended.
+- Using just `"HTML"` would match syntaxes from the following packages: `ASP`, `Erlang`, `Rails`, and `TCL` as well as the `HTML` package which may have been the only one intended.
 
-For reference use only, this package also includes 2 lists of Sublime Text built-in syntaxes:
+For reference use only, this package provides two lists of Sublime Text built-in syntaxes:
 
 - [Sublime Text v2 build 2221 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_2221_Syntax_List)
 - [Sublime Text v3 build 3114 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_3114_Syntax_List)
