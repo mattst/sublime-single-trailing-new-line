@@ -1,10 +1,19 @@
 {
     //  Single Trailing New Line Package Settings
-
+    // -------------------------------------------
+    //
     // Changing these settings from their default values allows the plugin to
     // be run automatically every time a file is saved. The plugin makes sure
-    // that there is exactly one trailing newline at the end of the file and
-    // that there is no additional whitespace.
+    // that there is exactly one trailing newline at the end of the file. All
+    // of the whitespace and trailing newlines at the end of the file (if any)
+    // are removed and a single newline is inserted.
+    //
+    // Users should read the "Running Automatically" section on the home page,
+    // linked below, which has examples and essential information about how to
+    // configure the "enable_for_syntaxes_list" setting.
+    //
+    // https://github.com/mattst/sublime-single-trailing-new-line/
+
 
     // Setting: enable_for_all_syntaxes - default: false
     // true:  enable the plugin for all files, regardless of their syntax.
@@ -18,30 +27,3 @@
 
     "enable_for_syntaxes_list": []
 }
-
-//
-// Read the "Running Automatically" section on the home page which has examples
-// and information about configuring the "enable_for_syntaxes_list" setting.
-// The home page is: https://github.com/mattst/sublime-single-trailing-new-line
-//
-// Sublime Text v3 (build 3084+) example settings file:
-//
-// {
-//     "enable_for_all_syntaxes": false,
-//
-//     "enable_for_syntaxes_list":
-//     [
-//         "Packages/C++/C.sublime-syntax",
-//         "Packages/C++/C++.sublime-syntax",
-//         "Packages/Java/Java.sublime-syntax",
-//         "Packages/JavaScript/JSON.sublime-syntax",
-//         "Packages/Python/Python.sublime-syntax",
-//         "Packages/Python Improved/PythonImproved.tmLanguage",
-//         "Packages/Rails/",
-//         "Packages/XML/XML.sublime-syntax"
-//     ]
-// }
-//
-// Copy the full syntax name of the current file's syntax into the clipboard by
-// entering "Copy Syntax Name" into the command palette.
-//
