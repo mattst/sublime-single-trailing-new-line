@@ -32,7 +32,7 @@ This package has been submitted to [Package Control](http://packagecontrol.io) a
 
 - Rename it from `sublime-single-trailing-new-line-master` to `SingleTrailingNewLine`.
 
-- You should end up with this folder: `Packages/SingleTrailingNewLine/`
+- Make sure you end up with this folder: `Packages/SingleTrailingNewLine/`
 
 ### Setup and Usage
 
@@ -60,19 +60,18 @@ Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system)
 
 #### Running Automatically
 
-The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline. This is disabled by default. It can be enabled for either all files or for only files of specific syntaxes. To enable it, the default settings in the package's settings file must be changed.
+The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline - this is disabled by default. It can be enabled for either *all files* or for only *files of specific syntaxes*. To enable it, the default settings in the package's settings file must be changed.
 
-Users will need to create the settings file; its location in your Sublime Text config `Packages` directory should be:
+Users will need to create the settings file; its location in your Sublime Text config folders should be:
 
     Packages/User/SingleTrailingNewLine.sublime-settings
 
 How to create the settings file:
 
-- Open the 2 files below from the Sublime Text menu then copy and paste the default file into the user file.
-<br/>`Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - Default`
-<br/>`Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - User`
-- Alternatively just save the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) to:
-<br/>`Packages/User/SingleTrailingNewLine.sublime-settings`
+- Open the 2 files below from the Sublime Text menu and then copy and paste the default file into the empty user file.
+<br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - Default`
+<br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - User`
+- Alternatively just save the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) to: `Packages/User/SingleTrailingNewLine.sublime-settings`
 
 There are 2 settings available:
 
