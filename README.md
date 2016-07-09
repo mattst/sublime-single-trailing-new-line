@@ -36,7 +36,7 @@ This package has been submitted to [Package Control](http://packagecontrol.io) a
 
 ### Setup and Usage
 
-This plugin was designed to be run automatically when a file is saved, rather than by manually running it from the command palette or with a key binding. However some users may prefer to run it manually on an as-needed basis, or to have that option available for syntaxes they have not added in the settings.
+The plugin was designed to be run automatically when a file is saved, rather than by manually running it from the command palette or with a key binding. However some users may prefer to run it manually on an as-needed basis, or to have that option available for syntaxes they have not added in the settings.
 
 #### Command Palette
 
@@ -54,7 +54,7 @@ Add the key binding of your choice to your user key bindings file (`Menu --> Pre
 
     { "keys": ["ctrl+whatever"], "command": "single_trailing_new_line" }
 
-There are now so many Sublime Text packages available that key conflicts are commonplace, it is therefore best for users to decide their own keys for small plugins like this one.
+There are now so many Sublime Text packages available that key conflicts are commonplace, it is therefore best for users to decide their own keys for small packages like this one.
 
 Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system).
 
