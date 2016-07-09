@@ -66,15 +66,15 @@ Users will need to create the settings file; its location in your Sublime Text *
 
     Packages/User/SingleTrailingNewLine.sublime-settings
 
-How to create the settings file:
+Creating the settings file:
 
-- Use the Sublime Text menu to open the following 2 files and then copy and paste the contents of the default file into the user file which will be empty to begin with.
+- Use the Sublime Text menu to open the following 2 files. Then copy and paste the contents of the *default settings file* into the *user settings file* which will be empty to begin with.
 <br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - Default`
 <br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - User`
 
-- Alternatively save the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) to: `Packages/User/SingleTrailingNewLine.sublime-settings`
+- Alternatively you can save the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) to: `Packages/User/SingleTrailingNewLine.sublime-settings`
 
-When changing the settings make sure you use the user settings file.
+When changing the settings make sure you use the *user settings file*.
 
 There are 2 settings available:
 
@@ -82,7 +82,7 @@ There are 2 settings available:
 
 - `enable_for_syntaxes_list` - *a list*. If syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: [] - *an empty list*
 
-Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the sole exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use just `.tmLanguage` syntax files.
+Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the sole exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use only `.tmLanguage` syntax files.
 
 Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Text v3 builds from 3084 onwards:
 
@@ -120,19 +120,19 @@ Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Tex
         ]
     }
 
-The full syntax name of the current file's syntax can be copied into the clipboard by entering `"Copy Syntax Name"` into the command palette. It can also be got by using the `view.settings().get("syntax")` command in the Sublime Text console.
+The full syntax name of the current file's syntax can be copied into the clipboard by entering `"Copy Syntax Name"` into the command palette. It can also be displayed by using the `view.settings().get("syntax")` command in the console.
 
 The following information about the `enable_for_syntaxes_list` entries should be noted:
 
 - They are *case sensitive* and neither *regular expressions* nor *wildcards* are accepted.
 
-- It is generally advisable to use the full syntax name, as shown in the example settings files, but partial syntax names are also acceptable, e.g. `"XML.sublime-syntax"`.
+- It is generally advisable to use the full syntax name, as shown in the example settings files, but partial syntax names are also accepted, e.g. `"XML.sublime-syntax"`.
 
-- Any case sensitive substring match will work, e.g. `"C++", "Java", "Python", "Rails", "XML"` would match all of the syntaxes shown in the examples settings files but would also match a whole lot more.
+- Any *case sensitive* substring match will work, e.g. `"C++", "Java", "Python", "Rails", "XML"` would match all of the syntaxes shown in the examples settings files but would also match a whole lot more.
 
 - `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`.
 
-- All of the syntaxes in a package can be matched by using just the path. e.g. `"Packages/Rails/"` would match all 5 syntaxes from the `Rails` package, i.e. `"Packages/Rails/Ruby on Rails.sublime-syntax"` as well as the other 4.
+- All of the syntaxes in a (multi-syntax) package can be matched by using just its path. e.g. `"Packages/Rails/"` would match all 5 syntaxes from the `Rails` package, i.e. `"Packages/Rails/Ruby on Rails.sublime-syntax"` as well as the other 4.
 
 - Using just `"Java"` would match all 7 syntaxes from the `Java` and `JavaScript` packages, as would `"Packages/Java"` but not `"Packages/Java/"` because the trailing slash would not match `"Packages/JavaScript/"`.
 
@@ -142,8 +142,9 @@ For reference use only, 2 lists of Sublime Text built-in syntaxes are provided:
 
 - [Sublime Text v2 build 2221 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_2221_Syntax_List)
 - [Sublime Text v3 build 3114 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_3114_Syntax_List)
-- Those using Sublime Text v3 builds earlier than 3084 should use the v2 list.
+
+Those using Sublime Text v3 builds earlier than 3084 should use the v2 list.
 
 ### License
 
-This plugin is licensed under The MIT License (MIT), see the [LICENSE file](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/LICENSE).
+This package is licensed under The MIT License (MIT). See the [LICENSE file](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/LICENSE).
