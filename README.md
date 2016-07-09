@@ -62,7 +62,7 @@ Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system)
 
 The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline - this is *disabled by default*. It can be enabled for either *all files* or for only *files of specific syntaxes* by changing the default settings in the package's settings file.
 
-Users will need to create the settings file; its location in your Sublime Text *config* folders ([*where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)) should be:
+Users will need to create the settings file; its path in your Sublime Text *config* folders ([*where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)) should be:
 
     Packages/User/SingleTrailingNewLine.sublime-settings
 
@@ -80,7 +80,7 @@ There are 2 settings available:
 
 - `enable_for_all_syntaxes` - *true/false*. If set to *true* the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. Only if it is set to *false* will the plugin look at the `enable_for_syntaxes_list` setting. Default: *false*
 
-- `enable_for_syntaxes_list` - *a list*. If syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: [] - *an empty list*
+- `enable_for_syntaxes_list` - *a list*. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*
 
 Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the sole exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use only `.tmLanguage` syntax files.
 
@@ -126,11 +126,11 @@ The following information about the `enable_for_syntaxes_list` entries should be
 
 - They are *case sensitive* and neither *regular expressions* nor *wildcards* are accepted.
 
-- It is generally advisable to use the full syntax name, as shown in the example settings files, but partial syntax names are also accepted, e.g. `"XML.sublime-syntax"`.
+- It is generally advisable to use the full syntax name, as shown in the example settings files above, but partial syntax names are also accepted, e.g. `"XML.sublime-syntax"`.
 
-- Any *case sensitive* substring match will work, e.g. `"C++", "Java", "Python", "Rails", "XML"` would match all of the syntaxes shown in the examples settings files but would also match a whole lot more.
+- Any *case sensitive* substring match will work, e.g. `"C++", "Java", "Python", "Rails", "XML"` would match all of the syntaxes shown in the examples settings files above but would also match a whole lot more.
 
-- `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`.
+- `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`. Using just `"C"` on its own would be inadvisable, it would match any syntax containing an upper-case letter C (approx. 16 of the default syntaxes).
 
 - All of the syntaxes in a (multi-syntax) package can be matched by using just its path. e.g. `"Packages/Rails/"` would match all 5 syntaxes from the `Rails` package, i.e. `"Packages/Rails/Ruby on Rails.sublime-syntax"` as well as the other 4.
 
