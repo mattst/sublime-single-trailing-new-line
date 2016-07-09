@@ -71,6 +71,7 @@ How to create the settings file:
 - Use the Sublime Text menu to open the following 2 files and then copy and paste the contents of the default file into the user file which will be empty to begin with.
 <br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - Default`
 <br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - User`
+
 - Alternatively save the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) to: `Packages/User/SingleTrailingNewLine.sublime-settings`
 
 When changing the settings make sure you use the user settings file.
