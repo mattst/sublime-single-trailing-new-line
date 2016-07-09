@@ -8,22 +8,27 @@
     // of the whitespace and trailing newlines at the end of the file (if any)
     // are removed and a single newline is inserted.
     //
-    // Users should read the "Running Automatically" section on the home page,
-    // linked below, which has examples and essential information about how to
-    // configure the "enable_for_syntaxes_list" setting.
+    // Users should read the "Running Automatically" section of the README file
+    // which has examples and essential information about how to configure the
+    // "enable_for_syntaxes_list" setting, including how to easily add all of
+    // the syntaxes contained in a (multi-syntax) package with just one entry.
     //
+    // Locations of the README file (local copy and on the web):
+    //
+    // Preferences -> Package Settings -> SingleTrailingNewLine -> README
     // https://github.com/mattst/sublime-single-trailing-new-line/
 
 
     // Setting: enable_for_all_syntaxes - default: false
-    // true:  enable the plugin for all files, regardless of their syntax.
-    // false: enable the plugin for the syntaxes in: enable_for_syntaxes_list
+    // true:  enables the plugin for all files, regardless of their syntax.
+    // false: the plugin will examine the enable_for_syntaxes_list setting.
 
     "enable_for_all_syntaxes": false,
 
     // Setting: enable_for_syntaxes_list - default: [] (an empty list)
     // If this setting contains a list of one or more syntax names then the
-    // plugin will be enabled for all files with matching syntaxes.
+    // plugin will be enabled for all files with matching syntaxes including
+    // partial syntax name matches. If using please read the README file.
 
     "enable_for_syntaxes_list": []
 }
