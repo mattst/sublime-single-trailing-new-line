@@ -28,7 +28,7 @@ This package has been submitted to [Package Control](http://packagecontrol.io) a
 
 - Download the package's [zip file](https://github.com/mattst/sublime-single-trailing-new-line/archive/master.zip) and extract it, or use `git clone` to get the package from its [GitHub page](https://github.com/mattst/sublime-single-trailing-new-line).
 
-- Move the package's folder to your Sublime Text config `Packages` folder. [Where is that?](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)
+- Move the package's folder to your Sublime Text *config* `Packages` folder. [*Where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)
 
 - Rename it from `sublime-single-trailing-new-line-master` to `SingleTrailingNewLine`.
 
@@ -62,7 +62,7 @@ Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system)
 
 The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline - this is *disabled by default*. It can be enabled for either *all files* or for only *files of specific syntaxes* by changing the default settings in the package's settings file.
 
-Users will need to create the settings file; its location in your Sublime Text config folders ([where is that?](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)) should be:
+Users will need to create the settings file; its location in your Sublime Text *config* folders ([*where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)) should be:
 
     Packages/User/SingleTrailingNewLine.sublime-settings
 
