@@ -29,6 +29,7 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
         """ Called immediately before the file in the view is saved. """
 
         if self.is_plugin_enabled(view):
+            # A TextCommand derived class is needed for an edit object.
             view.run_command("single_trailing_new_line")
 
     def is_plugin_enabled(self, view):
@@ -39,17 +40,19 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
         false is returned.
 
         This method does not result in a disk file read every time a file is
-        saved; the settings are loaded into memory at start-up and when the
-        settings file is modified, thus this is not time expensive.
+        saved; the settings are loaded into memory at start-up and whenever
+        the settings file is modified, so this method is not time expensive.
         """
 
         settings_file  = "SingleTrailingNewLine.sublime-settings"
-        settings       = sublime.load_settings(settings_file)
+        settings = sublime.load_settings(settings_file)
+
         enable_for_all = settings.get("enable_for_all_syntaxes", False)
-        syntax_list    = settings.get("enable_for_syntaxes_list", [])
 
         if enable_for_all:
             return True
+
+        syntax_list = settings.get("enable_for_syntaxes_list", [])
 
         if not isinstance(syntax_list, list) or len(syntax_list) == 0:
             return False
@@ -57,7 +60,7 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
         syntax_current_file = view.settings().get("syntax")
 
         for syntax in syntax_list:
-            if syntax in syntax_current_file:
+            if syntax in syntax_current_file and len(syntax) > 0:
                 return True
 
         return False
@@ -76,16 +79,15 @@ class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
         if self.view.size() < 1:
             return
 
-        # Find the last character that is neither whitespace nor a newline.
+        # Find the last significant character in the file, one
+        # that is neither a newline nor any kind of whitespace.
 
-        pos = self.view.size() - 1
+        last_sig_char = self.view.size() - 1
 
-        while pos >= 0 and self.view.substr(pos).isspace():
-            pos -= 1
+        while last_sig_char >= 0 and self.view.substr(last_sig_char).isspace():
+            last_sig_char -= 1
 
-        # Delete trailing whitespace and add a single trailing newline.
-
-        erase_region = sublime.Region(pos + 1, self.view.size())
+        erase_region = sublime.Region(last_sig_char + 1, self.view.size())
         self.view.erase(edit, erase_region)
         self.view.insert(edit, self.view.size(), "\n")
 
