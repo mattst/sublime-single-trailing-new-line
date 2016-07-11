@@ -18,8 +18,8 @@ import sublime, sublime_plugin
 class SingleTrailingNewLineListener(sublime_plugin.EventListener):
     """
     Calls the "single_trailing_new_line" command when a pre-save event occurs
-    but only if the plugin has been enabled in the settings file for all files
-    or for the syntax of the current file.
+    but only if the plugin has been enabled in the settings file for either all
+    files or for the syntax of the current file.
 
     Note: The EventListener class does not implement the is_enabled() method,
     unlike the TextCommand, ApplicationCommand, and WindowCommand classes.
@@ -29,8 +29,9 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
         """ Called immediately before the file in the view is saved. """
 
         if self.is_plugin_enabled(view):
-            # A TextCommand derived class is needed for an edit object.
+            # A TextCommand derived class is needed to get an edit object.
             view.run_command("single_trailing_new_line")
+
 
     def is_plugin_enabled(self, view):
         """
@@ -63,7 +64,6 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
         str_class = str if int(sublime.version()) >= 3000 else basestring
 
         for syntax in syntax_list:
-
             if (isinstance(syntax, str_class) and len(syntax) > 0 and
                     syntax in syntax_current_file):
                 return True
