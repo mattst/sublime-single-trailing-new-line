@@ -17,12 +17,6 @@
                         [
                             {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/SingleTrailingNewLine/README.md"},
-                                "caption": "README"
-                            },
-                            { "caption": "-" },
-                            {
-                                "command": "open_file",
                                 "args": {"file": "${packages}/SingleTrailingNewLine/SingleTrailingNewLine.sublime-settings"},
                                 "caption": "Settings – Default"
                             },
