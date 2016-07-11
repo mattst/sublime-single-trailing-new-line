@@ -59,8 +59,13 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
 
         syntax_current_file = view.settings().get("syntax")
 
+        # Python v2 (ST2) and Python v3 (ST3) use different string classes.
+        str_class = str if int(sublime.version()) >= 3000 else basestring
+
         for syntax in syntax_list:
-            if syntax in syntax_current_file and len(syntax) > 0:
+
+            if (isinstance(syntax, str_class) and len(syntax) > 0 and
+                    syntax in syntax_current_file):
                 return True
 
         return False
