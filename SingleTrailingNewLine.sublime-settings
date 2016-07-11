@@ -6,16 +6,14 @@
     // be run automatically every time a file is saved. The plugin makes sure
     // that there is exactly one trailing newline at the end of the file. All
     // of the whitespace and trailing newlines at the end of the file (if any)
-    // are removed and a single newline is inserted.
+    // are removed and a single newline is inserted. Empty files are ignored.
     //
     // Users should read the "Running Automatically" section of the README file
     // which has examples and essential information about how to configure the
-    // "enable_for_syntaxes_list" setting, including how to easily add all of
-    // the syntaxes contained in a (multi-syntax) package with just one entry.
+    // "enable_for_syntaxes_list" setting, including how to add all of the
+    // syntaxes contained in a (multi-syntax) package with just one entry.
     //
-    // Locations of the README file (local copy and on the web):
-    //
-    // Menu -> Prefs -> Package Settings -> SingleTrailingNewLine -> README
+    // The README file can be viewed at the following url:
     // https://github.com/mattst/sublime-single-trailing-new-line/
 
 
