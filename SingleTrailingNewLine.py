@@ -35,40 +35,36 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
 
     def is_plugin_enabled(self, view):
         """
-        Controls whether or not the plugin should run. True is returned if the
+        Controls whether the plugin should be run. True is returned if the
         "enable_for_all_syntaxes" setting is true and for files whose syntax
-        name has a match in the "enable_for_syntaxes_list" setting, otherwise
-        false is returned.
+        name is matched by one of the items in the "enable_for_syntaxes_list"
+        setting, otherwise false is returned.
 
         This method does not result in a disk file read every time a file is
         saved; the settings are loaded into memory at start-up and whenever
         the settings file is modified, so this method is not time expensive.
         """
 
-        settings_file  = "SingleTrailingNewLine.sublime-settings"
-        settings = sublime.load_settings(settings_file)
+        try:
+            settings_file = "SingleTrailingNewLine.sublime-settings"
+            settings = sublime.load_settings(settings_file)
 
-        enable_for_all = settings.get("enable_for_all_syntaxes", False)
+            is_enabled_for_all = settings.get("enable_for_all_syntaxes", False)
 
-        if enable_for_all:
-            return True
-
-        syntax_list = settings.get("enable_for_syntaxes_list", [])
-
-        if not isinstance(syntax_list, list) or len(syntax_list) == 0:
-            return False
-
-        syntax_current_file = view.settings().get("syntax")
-
-        # Python v2 (ST2) and Python v3 (ST3) use different string classes.
-        str_class = str if int(sublime.version()) >= 3000 else basestring
-
-        for syntax in syntax_list:
-            if (isinstance(syntax, str_class) and len(syntax) > 0 and
-                    syntax in syntax_current_file):
+            if is_enabled_for_all:
                 return True
 
-        return False
+            valid_syntax_list = settings.get("enable_for_syntaxes_list", [])
+            current_syntax = view.settings().get("syntax")
+
+            for valid_syntax in valid_syntax_list:
+                if len(valid_syntax) > 0 and valid_syntax in current_syntax:
+                    return True
+
+            return False
+
+        except Exception:
+            return False
 
 
 class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
