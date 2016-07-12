@@ -70,7 +70,7 @@ For users who would like to use keys for all the features here are the available
 
 The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline but this is disabled by default. It can be enabled for either all files or for only files of specific syntaxes by changing the default settings in the package's user settings file.
 
-Users will need to create the settings file; its path in your Sublime Text config folders ([*where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)) should be:
+The path of the package's user settings file, in your Sublime Text config folders ([*where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)), must be:
 
     Packages/User/SingleTrailingNewLine.sublime-settings
 
@@ -85,7 +85,7 @@ There are 2 settings:
 
 - `enable_for_all_syntaxes`: *true/false*. If this is set to *true* the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. Default: *false*.
 
-- `enable_for_syntaxes_list`: *a list*. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*. Note that this setting will be ignored if the `enable_for_all_syntaxes` setting is *true*.
+- `enable_for_syntaxes_list`: *a list* of strings. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*. Note that this setting will be ignored if the `enable_for_all_syntaxes` setting is *true*.
 
 The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use only `.tmLanguage` syntax files.
 
