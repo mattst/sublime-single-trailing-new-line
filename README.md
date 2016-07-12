@@ -68,25 +68,17 @@ For users who would like to use keys for all the features here are the available
 
 #### Running Automatically
 
-The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline - this is *disabled by default*. It can be enabled for either *all files* or for only *files of specific syntaxes* by changing the default settings in the package's user settings file.
-
-##### Settings File
+The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline - this is *disabled by default*. It can be enabled for either all files or for only files of specific syntaxes by changing the default settings in the package's user settings file.
 
 Users will need to create the settings file; its path in your Sublime Text *config* folders ([*where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)) should be:
 
     Packages/User/SingleTrailingNewLine.sublime-settings
 
-If you are not sure how to create the settings file, here are two easy ways:
-
-- Use the Sublime Text menu to open the following 2 files. Then copy and paste the contents of the *default settings file* into the *user settings file* which will be empty to begin with.
+The default and user settings files can be accessed from the Sublime Text menu:
 <br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - Default`
 <br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - User`
 
-- Alternatively you can save the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) to: `Packages/User/SingleTrailingNewLine.sublime-settings`
-
-When changing the settings make sure you use the *user settings file* (the menu item is shown above.)
-
-##### Settings
+When changing the settings make sure you use the user settings file.
 
 There are 2 settings available:
 
@@ -95,8 +87,6 @@ There are 2 settings available:
 - `enable_for_syntaxes_list` - *a list*. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*
 
 Note: The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the sole exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use only `.tmLanguage` syntax files.
-
-##### Example
 
 Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Text v3 builds from 3084 onwards:
 
@@ -116,11 +106,7 @@ Here is an example `SingleTrailingNewLine.sublime-settings` file for Sublime Tex
         ]
     }
 
-##### Adding Syntax Names
-
 The full syntax name of the current file's syntax can be added to the `enable_for_syntaxes_list` by entering `Single Trailing New Line: Add Syntax` into the command palette or it can be copied into the clipboard by entering `Single Trailing New Line: Copy Syntax`. It can also be displayed by using the `view.settings().get("syntax")` command in the console.
-
-##### And Finally
 
 The following information about the `enable_for_syntaxes_list` entries should be noted:
 
