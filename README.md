@@ -82,7 +82,7 @@ If you are not sure how to create the settings file, here are two easy ways:
 
 - Alternatively you can save the package's [default settings file](https://raw.githubusercontent.com/mattst/sublime-single-trailing-new-line/master/SingleTrailingNewLine.sublime-settings) to: `Packages/User/SingleTrailingNewLine.sublime-settings`
 
-When changing the settings make sure you use the *user settings file*.
+When changing the settings make sure you use the *user settings file* (the menu item is shown above.)
 
 There are 2 settings available:
 
