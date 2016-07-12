@@ -11,7 +11,7 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 - It can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
 
-- Command palette entries to add and remove the syntax of the current file to the syntaxes list setting.
+- Command palette entries to add and remove the syntax of the current file to the syntaxes list setting are also included.
 
 ### Requirements
 
