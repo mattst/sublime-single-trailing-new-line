@@ -11,7 +11,7 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 - It can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
 
-- Command palette entries to add the syntax name of the current file to the syntax list setting or to copy it into the clipboard. [To help users manage the syntaxes syntax list setting.]
+- Command palette entries to add the syntax name of the current file to the syntax list setting or to copy it into the clipboard. [To help users manage the syntaxes list setting.]
 
 ### Requirements
 
@@ -36,17 +36,17 @@ This package has been submitted to [Package Control](http://packagecontrol.io) a
 
 ### Setup and Usage
 
-The plugin was designed to be run automatically when a file is saved, rather than by manually running it from the command palette or with a key binding. However some users may prefer to run it manually on an as-needed basis, or to have that option available for syntaxes they have not added in the settings.
+The plugin was designed to be run automatically when a file is saved, rather than by manually running it from the command palette or with a key binding. However some users may prefer to run it manually on an as-needed basis, or to have that option available for syntaxes they have not added to the syntaxes list setting.
 
 #### Command Palette
 
 The package includes several command palette commands:
 
-- `Single Trailing New Line` - ensure there is exactly one trailing newline at the end of the file. When run from the command palette the plugin will work with all files, the settings file will be ignored.
+- "Single Trailing New Line" - ensure there is exactly one trailing newline at the end of the file. When run from the command palette the plugin will work with all files, the settings file will be ignored.
 
-- `Single Trailing New Line: Add Syntax` - adds the full syntax name of the current file to the syntax list setting (`enable_for_syntaxes_list`).
+- "Single Trailing New Line: Add Syntax" - adds the full syntax name of the current file to the syntax list setting.
 
-- `Single Trailing New Line: Copy Syntax` - copies the full syntax name of the current file into the clipboard.
+- "Single Trailing New Line: Copy Syntax" - copies the full syntax name of the current file into the clipboard.
 
 #### Key Bindings
 
@@ -68,13 +68,13 @@ For users who would like to use keys for all the features here are the available
 
 #### Running Automatically
 
-The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline - this is *disabled by default*. It can be enabled for either *all files* or for only *files of specific syntaxes* by changing the default settings in the package's settings file.
+The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline - this is *disabled by default*. It can be enabled for either *all files* or for only *files of specific syntaxes* by changing the default settings in the package's user settings file.
 
 Users will need to create the settings file; its path in your Sublime Text *config* folders ([*where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)) should be:
 
     Packages/User/SingleTrailingNewLine.sublime-settings
 
-Creating the settings file:
+If you are not sure how to create the settings file, here are two easy ways:
 
 - Use the Sublime Text menu to open the following 2 files. Then copy and paste the contents of the *default settings file* into the *user settings file* which will be empty to begin with.
 <br/>`Menu --> Preferences --> Package Settings --> SingleTrailingNewLine --> Settings - Default`
@@ -86,7 +86,7 @@ When changing the settings make sure you use the *user settings file*.
 
 There are 2 settings available:
 
-- `enable_for_all_syntaxes` - *true/false*. If set to *true* the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. Only if it is set to *false* will the plugin look at the `enable_for_syntaxes_list` setting. Default: *false*
+- `enable_for_all_syntaxes` - *true/false*. If set to *true* the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. Default: *false*
 
 - `enable_for_syntaxes_list` - *a list*. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*
 
