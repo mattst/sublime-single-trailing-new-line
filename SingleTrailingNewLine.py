@@ -97,7 +97,7 @@ class SingleTrailingNewLineAddSyntaxCommand(sublime_plugin.TextCommand):
                 enable_for_syntaxes.sort()
                 settings.set(setting_enable_for_syntaxes_list, enable_for_syntaxes)
                 sublime.save_settings(settings_file)
-                msg = "Syntax " + current_syntax + " added"
+                msg = "Syntax added"
                 sublime.status_message(msg)
 
         except Exception:
@@ -122,7 +122,7 @@ class SingleTrailingNewLineRemoveSyntaxCommand(sublime_plugin.TextCommand):
                 enable_for_syntaxes.sort()
                 settings.set(setting_enable_for_syntaxes_list, enable_for_syntaxes)
                 sublime.save_settings(settings_file)
-                msg = "Syntax " + current_syntax + " removed"
+                msg = "Syntax removed"
                 sublime.status_message(msg)
 
         except Exception:
@@ -138,3 +138,5 @@ class SingleTrailingNewLineCopySyntaxCommand(sublime_plugin.TextCommand):
 
         syntax_current_file = self.view.settings().get("syntax")
         sublime.set_clipboard(syntax_current_file)
+        msg = "Syntax copied to clipboard"
+        sublime.status_message(msg)
