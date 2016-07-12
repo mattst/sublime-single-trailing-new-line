@@ -29,6 +29,7 @@ This package has been submitted to [Package Control](http://packagecontrol.io) a
 - Download the package's [zip file](https://github.com/mattst/sublime-single-trailing-new-line/archive/master.zip) and extract it, or use `git clone` to get the package from its [GitHub page](https://github.com/mattst/sublime-single-trailing-new-line).
 - Move the package's folder to your Sublime Text *config* `Packages` folder. [*Where is that?*](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-data-directory)
 - Rename it from `sublime-single-trailing-new-line-master` to `SingleTrailingNewLine`.
+- You should end up with this folder: `Packages/SingleTrailingNewLine/`
 
 ### Setup and Usage
 
@@ -39,9 +40,7 @@ The plugin was designed to be run automatically when a file is saved, rather tha
 The package includes several command palette commands:
 
 - *"Single Trailing New Line"* - ensure there is exactly one trailing newline at the end of the file. When run from the command palette the plugin will work with all files, the settings file will be ignored.
-
 - *"Single Trailing New Line: Add Syntax"* - adds the full syntax name of the current file to the syntax list setting.
-
 - *"Single Trailing New Line: Copy Syntax"* - copies the full syntax name of the current file into the clipboard.
 
 #### Key Bindings
