@@ -40,7 +40,9 @@ The plugin was designed to be run automatically when a file is saved, rather tha
 The package includes several command palette commands:
 
 - *"Single Trailing New Line"* - ensure there is exactly one trailing newline at the end of the file. When run from the command palette the plugin will work with all files, the settings file will be ignored.
+
 - *"Single Trailing New Line: Add Syntax"* - adds the full syntax name of the current file to the syntax list setting.
+
 - *"Single Trailing New Line: Copy Syntax"* - copies the full syntax name of the current file into the clipboard.
 
 #### Key Bindings
