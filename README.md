@@ -11,7 +11,7 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 - It can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
 
-- A command palette entry that copies the full syntax name of the current file into the clipboard. This is to help users to get full syntax names quickly and easily for use in the settings file.
+- Command palette entries to add the syntax name of the current file to the syntax list setting or to copy it into the clipboard. [To help users manage the syntaxes syntax list setting.]
 
 ### Requirements
 
@@ -40,13 +40,15 @@ The plugin was designed to be run automatically when a file is saved, rather tha
 
 #### Command Palette
 
-The package includes 2 command palette commands:
+The package includes several command palette commands:
 
 - `Single Trailing New Line` - ensure there is exactly one trailing newline at the end of the file. When run from the command palette the plugin will work with all files, the settings file will be ignored.
 
-- `Copy Syntax Name` - copies the full syntax name of the current file into the clipboard. This is to help users to get full syntax names quickly and easily for use in the settings file.
+- `Single Trailing New Line: Add Syntax` - adds the full syntax name of the current file to the syntax list setting (`enable_for_syntaxes_list`).
 
-#### Key Binding
+- `Single Trailing New Line: Copy Syntax` - copies the full syntax name of the current file into the clipboard.
+
+#### Key Bindings
 
 When run from a key binding the plugin will work with all files, the settings file will be ignored.
 
@@ -57,6 +59,12 @@ Add the key binding of your choice to your user key bindings file (`Menu --> Pre
 There are now so many Sublime Text packages available that key conflicts are commonplace, it is therefore best for users to decide their own keys for small packages like this one.
 
 Not sure? You could try: `"ctrl+k", "ctrl+n"` (which is not in use on my system).
+
+For users who would like to use keys for all the features here are the available commands:
+
+- `single_trailing_new_line` - ensures there is exactly one trailing newline at the end of the file.
+- `single_trailing_new_line_add_syntax` - adds the current syntax to the syntax list setting.
+- `single_trailing_new_line_copy_syntax` - copies the current syntax into the clipboard.
 
 #### Running Automatically
 
