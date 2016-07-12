@@ -15,14 +15,18 @@
 import sublime, sublime_plugin
 
 
+settings_file = "SingleTrailingNewLine.sublime-settings"
+setting_enable_for_all_syntaxes  = "enable_for_all_syntaxes"
+setting_enable_for_syntaxes_list = "enable_for_syntaxes_list"
+
+
 class SingleTrailingNewLineListener(sublime_plugin.EventListener):
     """
-    Calls the "single_trailing_new_line" command when a pre-save event occurs
-    but only if the plugin has been enabled in the settings file for either all
-    files or for the syntax of the current file.
+    Calls the "single_trailing_new_line" command when a pre-save event occurs but only if the plugin
+    has been enabled in the settings file for all files or for the syntax of the current file.
 
-    Note: The EventListener class does not implement the is_enabled() method,
-    unlike the TextCommand, ApplicationCommand, and WindowCommand classes.
+    Note: The EventListener class does not implement the is_enabled() method, unlike all the rest of
+    the sublime_plugin classes, so the is_plugin_enabled() method serves as a replacement.
     """
 
     def on_pre_save(self, view):
@@ -34,31 +38,22 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
 
 
     def is_plugin_enabled(self, view):
-        """
-        Controls whether the plugin should be run. True is returned if the
-        "enable_for_all_syntaxes" setting is true and for files whose syntax
-        name is matched by one of the items in the "enable_for_syntaxes_list"
-        setting, otherwise false is returned.
+        """ Determines whether the plugin should be run for the file in the current view. """
 
-        This method does not result in a disk file read every time a file is
-        saved; the settings are loaded into memory at start-up and whenever
-        the settings file is modified, so this method is not time expensive.
-        """
+        # This method does not result in a disk file read every time a file is
+        # saved; the settings are loaded into memory at start-up and whenever
+        # the settings file is modified, so this method is not time expensive.
 
         try:
-            settings_file = "SingleTrailingNewLine.sublime-settings"
             settings = sublime.load_settings(settings_file)
 
-            is_enabled_for_all = settings.get("enable_for_all_syntaxes", False)
-
-            if is_enabled_for_all:
+            if settings.get(setting_enable_for_all_syntaxes, False):
                 return True
 
-            valid_syntax_list = settings.get("enable_for_syntaxes_list", [])
             current_syntax = view.settings().get("syntax")
 
-            for valid_syntax in valid_syntax_list:
-                if len(valid_syntax) > 0 and valid_syntax in current_syntax:
+            for syntax in settings.get(setting_enable_for_syntaxes_list, []):
+                if len(syntax) > 0 and syntax in current_syntax:
                     return True
 
             return False
@@ -68,36 +63,51 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
 
 
 class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
-    """
-    Deletes all trailing newlines and whitespace at the end of the file and
-    then inserts a single trailing newline at the end of the file.
-    """
+    """ Deletes all trailing whitespace at the end of the file and inserts a single newline. """
 
     def run(self, edit):
-        """ Called when the plugin is run. """
 
-        # Do nothing if the file is empty.
+        # Ignore empty files.
         if self.view.size() < 1:
             return
 
-        # Find the last significant character in the file, one
-        # that is neither a newline nor any kind of whitespace.
+        last_significant_char = self.view.size() - 1
 
-        last_sig_char = self.view.size() - 1
+        while last_significant_char >= 0 and self.view.substr(last_significant_char).isspace():
+            last_significant_char -= 1
 
-        while last_sig_char >= 0 and self.view.substr(last_sig_char).isspace():
-            last_sig_char -= 1
-
-        erase_region = sublime.Region(last_sig_char + 1, self.view.size())
+        erase_region = sublime.Region(last_significant_char + 1, self.view.size())
         self.view.erase(edit, erase_region)
         self.view.insert(edit, self.view.size(), "\n")
 
 
-class CopySyntaxNameCommand(sublime_plugin.TextCommand):
-    """ Copies the current file's syntax name into the clipboard. """
+class SingleTrailingNewLineAddSyntaxCommand(sublime_plugin.TextCommand):
+    """ Adds the current file's syntax to the syntaxes list setting. """
 
     def run(self, edit):
-        """ Called when the plugin is run. """
+
+        try:
+            settings = sublime.load_settings(settings_file)
+
+            current_syntax = self.view.settings().get("syntax")
+            enable_for_syntaxes = settings.get(setting_enable_for_syntaxes_list, [])
+
+            if current_syntax not in enable_for_syntaxes:
+                enable_for_syntaxes.append(current_syntax)
+                enable_for_syntaxes.sort()
+                settings.set(setting_enable_for_syntaxes_list, enable_for_syntaxes)
+                sublime.save_settings(settings_file)
+
+        except Exception:
+            msg = "The user SingleTrailingNewLine.sublime-settings file is invalid"
+            sublime.status_message(msg)
+            return
+
+
+class SingleTrailingNewLineCopySyntaxCommand(sublime_plugin.TextCommand):
+    """ Copies the current file's syntax into the clipboard. """
+
+    def run(self, edit):
 
         syntax_current_file = self.view.settings().get("syntax")
         sublime.set_clipboard(syntax_current_file)
