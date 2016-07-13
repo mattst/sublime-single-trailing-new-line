@@ -85,9 +85,9 @@ There are 2 settings:
 
 - `enable_for_all_syntaxes`: *true/false*. If this is set to *true* the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. Default: *false*.
 
-- `enable_for_syntaxes_list`: *a list* of strings. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*. Note that this setting will be ignored if the `enable_for_all_syntaxes` setting is *true*.
+- `enable_for_syntaxes_list`: *a list of strings*. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*. This setting will be ignored if the `enable_for_all_syntaxes` setting is set to *true*.
 
-The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be present if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use only `.tmLanguage` syntax files.
+The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be on your system if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use only `.tmLanguage` syntax files.
 
 Here is an example `Packages/User/SingleTrailingNewLine.sublime-settings` file:
 
@@ -113,13 +113,13 @@ The following information about the `enable_for_syntaxes_list` entries should be
 
 - They are case sensitive and neither regular expressions nor wildcards are accepted.
 
-- It is generally advisable to use full syntax names, as shown in the example file above. Partial syntax names will work, e.g. `"XML.sublime-syntax"`, but only full syntax names can be added and removed by using the palette commands.
+- It is generally advisable to use full syntax names, as shown in the example file above. Partial syntax names will work, e.g. `"XML.sublime-syntax"`, but only full syntax names will be added and removed when using the palette commands.
 
-- In fact any case sensitive substring match will work. e.g. `"C++", "Java", "Python", "Rails", "XML"` would match all of the syntaxes shown in the example file above but would also match a whole lot more.
+- In fact any case sensitive substring match will work. e.g. the list `["C++", "Java", "Python", "Rails", "XML"]` would match all of the syntaxes shown in the example file above, but it would also match a whole lot more (17 of the ST v3 default syntaxes).
 
-- `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`. Using just `"C"` on its own would be inadvisable because it would match any syntax containing an upper-case letter C (approx. 16 of the default syntaxes).
+- `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`. Using just `"C"` on its own would be inadvisable because it would match any syntax containing an upper-case letter C (16 of the ST v3 default syntaxes).
 
-- All of the syntaxes in a (multi-syntax) package can be matched by using just the path. e.g. `"Packages/Rails/"` would match all 5 syntaxes from the `Rails` package, i.e. `"Packages/Rails/Ruby on Rails.sublime-syntax"` as well as the other 4.
+- All of the syntaxes in a (multi-syntax) package can be matched by using the syntax's path component on its own. e.g. `"Packages/Rails/"` would match all 5 syntaxes from the `Rails` package, i.e. `"Packages/Rails/Ruby on Rails.sublime-syntax"` as well as the other 4.
 
 - Using just `"Java"` would match all 7 syntaxes from the `Java` and `JavaScript` packages, as would `"Packages/Java"` but not `"Packages/Java/"` because the trailing slash would not match `"Packages/JavaScript/"`.
 
