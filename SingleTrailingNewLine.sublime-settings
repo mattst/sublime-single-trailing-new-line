@@ -1,3 +1,13 @@
+
+// Put your settings in this package's user settings file, path below, which
+// will override the default settings in this file which prevent the single
+// trailing newline plugin from running automatically when files are saved.
+//
+// Path in config folder: User/SingleTrailingNewLine.sublime-settings
+// Prefs -> Package Settings -> SingleTrailingNewLine -> Settings - User
+//
+// Docs: https://github.com/mattst/sublime-single-trailing-new-line
+
 {
     "enable_for_all_syntaxes": false,
     "enable_for_syntaxes_list": []
