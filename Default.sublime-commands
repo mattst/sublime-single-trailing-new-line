@@ -11,11 +11,11 @@
     { "caption": "Single Trailing New Line: Copy Current Syntax",
       "command": "single_trailing_new_line_copy_syntax" },
 
-    { "caption": "Single Trailing New Line: Enable For All Setting - True",
+    { "caption": "Single Trailing New Line: Enable For All Syntaxes - True",
       "command": "single_trailing_new_line_enable_for_all_syntaxes_setting",
       "args": {"value": true} },
 
-    { "caption": "Single Trailing New Line: Enable For All Setting - False",
+    { "caption": "Single Trailing New Line: Enable For All Syntaxes - False",
       "command": "single_trailing_new_line_enable_for_all_syntaxes_setting",
       "args": {"value": false} }
 ]

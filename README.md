@@ -46,9 +46,9 @@ The package includes several command palette commands:
 
 - `Single Trailing New Line: Remove Current Syntax`: removes the full syntax name of the current file from the syntax list setting.
 
-- `Single Trailing New Line: Enable For All Setting - True`: sets the enable for all syntaxes setting to true.
+- `Single Trailing New Line: Enable For All Syntaxes - True`: sets the enable for all syntaxes setting to true.
 
-- `Single Trailing New Line: Enable For All Setting - False`: sets the enable for all syntaxes setting to false.
+- `Single Trailing New Line: Enable For All Syntaxes - False`: sets the enable for all syntaxes setting to false.
 
 - `Single Trailing New Line: Copy Current Syntax`: copies the full syntax name of the current file into the clipboard.
 
