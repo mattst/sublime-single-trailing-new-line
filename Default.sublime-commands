@@ -5,5 +5,7 @@
 
     { "caption": "Single Trailing New Line: Remove Current Syntax", "command": "single_trailing_new_line_remove_syntax" },
 
-    { "caption": "Single Trailing New Line: Copy Current Syntax", "command": "single_trailing_new_line_copy_syntax" }
+    { "caption": "Single Trailing New Line: Copy Current Syntax", "command": "single_trailing_new_line_copy_syntax" },
+
+    { "caption": "Single Trailing New Line: Enable For All Syntaxes", "command": "single_trailing_new_line_enable_for_all_syntaxes" }
 ]

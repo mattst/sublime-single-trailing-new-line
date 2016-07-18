@@ -104,7 +104,7 @@ class SingleTrailingNewLineAddSyntaxCommand(sublime_plugin.TextCommand):
                 sublime.status_message(msg)
 
         except Exception:
-            msg = "The user SingleTrailingNewLine.sublime-settings file is invalid"
+            msg = "The SingleTrailingNewLine.sublime-settings file is invalid"
             sublime.status_message(msg)
             return
 
@@ -132,7 +132,25 @@ class SingleTrailingNewLineRemoveSyntaxCommand(sublime_plugin.TextCommand):
                 sublime.status_message(msg)
 
         except Exception:
-            msg = "The user SingleTrailingNewLine.sublime-settings file is invalid"
+            msg = "The SingleTrailingNewLine.sublime-settings file is invalid"
+            sublime.status_message(msg)
+            return
+
+
+class SingleTrailingNewLineEnableForAllSyntaxesCommand(sublime_plugin.TextCommand):
+    """ Sets the enable for all syntaxes setting to true. """
+
+    def run(self, edit):
+
+        try:
+            settings = sublime.load_settings(settings_file)
+            settings.set(setting_enable_for_all_syntaxes, True)
+            sublime.save_settings(settings_file)
+            msg = "Enabled for all syntaxes"
+            sublime.status_message(msg)
+
+        except Exception:
+            msg = "The SingleTrailingNewLine.sublime-settings file is invalid"
             sublime.status_message(msg)
             return
 
