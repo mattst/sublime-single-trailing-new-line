@@ -11,7 +11,7 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 - It can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
 
-- Command palette entries to add and remove the syntax of the current file to the syntaxes list setting are also included.
+- Command palette entries to add and remove the syntax of the current file to the syntaxes list setting, and to set the enable for all syntaxes setting to true and false, are also included.
 
 ### Requirements
 
@@ -46,6 +46,10 @@ The package includes several command palette commands:
 
 - `Single Trailing New Line: Remove Current Syntax`: removes the full syntax name of the current file from the syntax list setting.
 
+- `Single Trailing New Line: Enable For All Setting - True`: sets the enable for all syntaxes setting to true.
+
+- `Single Trailing New Line: Enable For All Setting - False`: sets the enable for all syntaxes setting to false.
+
 - `Single Trailing New Line: Copy Current Syntax`: copies the full syntax name of the current file into the clipboard.
 
 #### Key Bindings
@@ -66,8 +70,10 @@ For users who would like to use keys for all the features here are the available
 - `single_trailing_new_line_add_syntax`: adds the current syntax to the syntaxes list setting.
 - `single_trailing_new_line_remove_syntax`: removes the current syntax from the syntaxes list setting.
 - `single_trailing_new_line_copy_syntax`: copies the current syntax into the clipboard.
+- `single_trailing_new_line_enable_for_all_syntaxes_setting`: sets the enable for all syntaxes setting to true or false.
+    - Requires an arg called `"value"` to be set to true or false, e.g. `"args": {"value": true}`.
 
-#### Running Automatically
+#### Settings / Running Automatically
 
 The plugin can be run automatically every time a file is saved to ensure that the file is saved with exactly one trailing newline but this is disabled by default. It can be enabled for either all files or for only files of specific syntaxes by changing the default settings in the package's user settings file.
 
@@ -84,9 +90,9 @@ When changing the settings make sure you use the user settings file.
 
 There are 2 settings:
 
-- `enable_for_all_syntaxes`: *true/false*. If this is set to *true* the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. Default: *false*.
+- `enable_for_all_syntaxes`: *true* / *false*. If this is set to *true* the plugin will be active for all files, regardless of their syntax, every time any file is saved the plugin will be run. Default: *false*. It is important to note that setting this to *false* does not disable the plugin completely, it just prevents it from running for all syntaxes. When it is set to *false* the plugin will still run for the syntaxes listed in the `enable_for_syntaxes_list` setting.
 
-- `enable_for_syntaxes_list`: *a list of strings*. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*. This setting will be ignored if the `enable_for_all_syntaxes` setting is set to *true*.
+- `enable_for_syntaxes_list`: *a list of strings*. If one or more syntax names are added to this list, the plugin will be run every time a file, whose syntax matches one of the syntax names, is saved. Default: `[]` - *an empty list*. This setting will be ignored if the `enable_for_all_syntaxes` setting is set to *true*. There is further information about this setting below the example settings file.
 
 The `.sublime-syntax` syntax file format was introduced by Sublime Text v3 build 3084, from that version onwards all built-in syntax files use that format, with the exception of `Packages/Text/Plain text.tmLanguage`. Other `.tmLanguage` syntax files may be on your system if a syntax package that includes them has been installed, e.g. `PythonImproved`. Sublime Text v2 and v3 builds earlier than 3084 use only `.tmLanguage` syntax files.
 
@@ -107,8 +113,6 @@ Here is an example `Packages/User/SingleTrailingNewLine.sublime-settings` file:
             "Packages/XML/XML.sublime-syntax"
         ]
     }
-
-The full syntax name of the current file's syntax can be added to or removed from the `enable_for_syntaxes_list` by entering `Single Trailing New Line: Add Current Syntax` or `Single Trailing New Line: Remove Current Syntax` into the command palette or it can be copied into the clipboard by entering `Single Trailing New Line: Copy Current Syntax`. It can also be displayed by using the `view.settings().get("syntax")` command in the console.
 
 The following information about the `enable_for_syntaxes_list` entries should be noted:
 
