@@ -22,7 +22,8 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 #### Package Control
 
-This package has been submitted to [Package Control](http://packagecontrol.io) and installation instructions will be added when the submission process has been completed.
+- Open the command palette and select: `Package Control: Install Package`
+- Wait for the package list to be updated and then select: `SingleTrailingNewLine`
 
 #### Manual Installation
 
