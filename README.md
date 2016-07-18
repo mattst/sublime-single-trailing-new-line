@@ -120,7 +120,7 @@ The following information about the `enable_for_syntaxes_list` entries should be
 
 - It is generally advisable to use full syntax names, as shown in the example file above. Partial syntax names will work, e.g. `"XML.sublime-syntax"`, but only full syntax names will be added and removed when using the palette commands.
 
-- In fact any case sensitive substring match will work. e.g. the list `["C++", "Java", "Python", "Rails", "XML"]` would match all of the syntaxes shown in the example file above, but it would also match a whole lot more (17 of the ST v3 default syntaxes).
+- In fact any case sensitive substring match will work; e.g. the list `["C++", "Java", "Python", "Rails", "XML"]` would match all of the syntaxes shown in the example file above, but it would also match a whole lot more (17 of the ST v3 default syntaxes).
 
 - `"C.sublime-syntax"` would match both `"Packages/C++/C.sublime-syntax"` and `"Packages/Objective-C/Objective-C.sublime-syntax"`. Using just `"C"` on its own would be inadvisable because it would match any syntax containing an upper-case letter C (16 of the ST v3 default syntaxes).
 
@@ -133,7 +133,7 @@ For reference use only, 2 lists of Sublime Text built-in syntaxes are provided:
 - [Sublime Text v2 build 2221 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_2221_Syntax_List)
 - [Sublime Text v3 build 3114 syntax list](https://github.com/mattst/sublime-single-trailing-new-line/blob/master/Sublime_Text_3114_Syntax_List)
 
-Those using Sublime Text v3 builds earlier than 3084 should use the v2 list.
+Those using Sublime Text v3 builds earlier than 3084 should refer to the v2 list.
 
 ### License
 
