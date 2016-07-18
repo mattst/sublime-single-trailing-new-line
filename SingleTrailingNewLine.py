@@ -106,7 +106,6 @@ class SingleTrailingNewLineAddSyntaxCommand(sublime_plugin.TextCommand):
         except Exception:
             msg = "The SingleTrailingNewLine.sublime-settings file is invalid"
             sublime.status_message(msg)
-            return
 
 
 class SingleTrailingNewLineRemoveSyntaxCommand(sublime_plugin.TextCommand):
@@ -134,25 +133,37 @@ class SingleTrailingNewLineRemoveSyntaxCommand(sublime_plugin.TextCommand):
         except Exception:
             msg = "The SingleTrailingNewLine.sublime-settings file is invalid"
             sublime.status_message(msg)
-            return
 
 
-class SingleTrailingNewLineEnableForAllSyntaxesCommand(sublime_plugin.TextCommand):
-    """ Sets the enable for all syntaxes setting to true. """
+class SingleTrailingNewLineEnableForAllSyntaxesSettingCommand(sublime_plugin.TextCommand):
+    """ Sets the enable for all syntaxes setting to a boolean value. """
 
-    def run(self, edit):
+    def run(self, edit, **kwargs):
 
         try:
+            arg_value = kwargs.get("value", None)
+
+            if arg_value is None or not isinstance(arg_value, bool):
+                msg = "Invalid args"
+                sublime.status_message(msg)
+                return
+
             settings = sublime.load_settings(settings_file)
-            settings.set(setting_enable_for_all_syntaxes, True)
+
+            if arg_value:
+                settings.set(setting_enable_for_all_syntaxes, True)
+                msg = "Enable For All Setting - True"
+
+            else:
+                settings.set(setting_enable_for_all_syntaxes, False)
+                msg = "Enable For All Setting - False"
+
             sublime.save_settings(settings_file)
-            msg = "Enabled for all syntaxes"
             sublime.status_message(msg)
 
         except Exception:
             msg = "The SingleTrailingNewLine.sublime-settings file is invalid"
             sublime.status_message(msg)
-            return
 
 
 class SingleTrailingNewLineCopySyntaxCommand(sublime_plugin.TextCommand):

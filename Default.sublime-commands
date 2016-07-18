@@ -1,11 +1,21 @@
 [
-    { "caption": "Single Trailing New Line", "command": "single_trailing_new_line" },
+    { "caption": "Single Trailing New Line",
+      "command": "single_trailing_new_line" },
 
-    { "caption": "Single Trailing New Line: Add Current Syntax", "command": "single_trailing_new_line_add_syntax" },
+    { "caption": "Single Trailing New Line: Add Current Syntax To List",
+      "command": "single_trailing_new_line_add_syntax" },
 
-    { "caption": "Single Trailing New Line: Remove Current Syntax", "command": "single_trailing_new_line_remove_syntax" },
+    { "caption": "Single Trailing New Line: Remove Current Syntax From List",
+      "command": "single_trailing_new_line_remove_syntax" },
 
-    { "caption": "Single Trailing New Line: Copy Current Syntax", "command": "single_trailing_new_line_copy_syntax" },
+    { "caption": "Single Trailing New Line: Copy Current Syntax",
+      "command": "single_trailing_new_line_copy_syntax" },
 
-    { "caption": "Single Trailing New Line: Enable For All Syntaxes", "command": "single_trailing_new_line_enable_for_all_syntaxes" }
+    { "caption": "Single Trailing New Line: Enable For All Setting - True",
+      "command": "single_trailing_new_line_enable_for_all_syntaxes_setting",
+      "args": {"value": true} },
+
+    { "caption": "Single Trailing New Line: Enable For All Setting - False",
+      "command": "single_trailing_new_line_enable_for_all_syntaxes_setting",
+      "args": {"value": false} }
 ]
