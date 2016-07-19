@@ -1,6 +1,6 @@
 
 #
-# Name:          Single Trailing New Line
+# Name:          Single Trailing Newline
 #
 # Requirements:  Sublime Text v2 and v3
 #
@@ -15,9 +15,9 @@
 import sublime, sublime_plugin
 
 
-settings_file = "SingleTrailingNewLine.sublime-settings"
-setting_enable_for_all_syntaxes  = "enable_for_all_syntaxes"
-setting_enable_for_syntaxes_list = "enable_for_syntaxes_list"
+SETTINGS_FILE = "SingleTrailingNewLine.sublime-settings"
+ENABLE_FOR_ALL_SYNTAXES_SETTING  = "enable_for_all_syntaxes"
+ENABLE_FOR_SYNTAXES_LIST_SETTING = "enable_for_syntaxes_list"
 
 
 class SingleTrailingNewLineListener(sublime_plugin.EventListener):
@@ -38,22 +38,22 @@ class SingleTrailingNewLineListener(sublime_plugin.EventListener):
 
 
     def is_plugin_enabled(self, view):
-        """ Determines whether the plugin should be run for the file in the current view. """
+        """ Determines whether the plugin should be run automatically for the file in the view. """
 
         # This method does not result in a disk file read every time a file is
         # saved; the settings are loaded into memory at start-up and whenever
         # the settings file is modified, so this method is not time expensive.
 
         try:
-            settings = sublime.load_settings(settings_file)
+            settings = sublime.load_settings(SETTINGS_FILE)
 
-            if settings.get(setting_enable_for_all_syntaxes, False):
+            if settings.get(ENABLE_FOR_ALL_SYNTAXES_SETTING, False):
                 return True
 
-            current_syntax = view.settings().get("syntax")
+            syntax_current_file = view.settings().get("syntax")
 
-            for syntax in settings.get(setting_enable_for_syntaxes_list, []):
-                if len(syntax) > 0 and syntax in current_syntax:
+            for syntax in settings.get(ENABLE_FOR_SYNTAXES_LIST_SETTING, []):
+                if len(syntax) > 0 and syntax in syntax_current_file:
                     return True
 
             return False
@@ -71,12 +71,15 @@ class SingleTrailingNewLineCommand(sublime_plugin.TextCommand):
         if self.view.size() < 1:
             return
 
-        last_significant_char = self.view.size() - 1
+        # Work backwards from the end of the file to find
+        # the last significant (non-whitespace) character.
 
-        while last_significant_char >= 0 and self.view.substr(last_significant_char).isspace():
-            last_significant_char -= 1
+        last_sig_char = self.view.size() - 1
 
-        erase_region = sublime.Region(last_significant_char + 1, self.view.size())
+        while last_sig_char >= 0 and self.view.substr(last_sig_char).isspace():
+            last_sig_char -= 1
+
+        erase_region = sublime.Region(last_sig_char + 1, self.view.size())
         self.view.erase(edit, erase_region)
         self.view.insert(edit, self.view.size(), "\n")
 
@@ -87,16 +90,16 @@ class SingleTrailingNewLineAddSyntaxCommand(sublime_plugin.TextCommand):
     def run(self, edit):
 
         try:
-            settings = sublime.load_settings(settings_file)
+            settings = sublime.load_settings(SETTINGS_FILE)
 
-            current_syntax = self.view.settings().get("syntax")
-            enable_for_syntaxes = settings.get(setting_enable_for_syntaxes_list, [])
+            syntax_current_file = self.view.settings().get("syntax")
+            enable_for_syntaxes = settings.get(ENABLE_FOR_SYNTAXES_LIST_SETTING, [])
 
-            if current_syntax not in enable_for_syntaxes:
-                enable_for_syntaxes.append(current_syntax)
+            if syntax_current_file not in enable_for_syntaxes:
+                enable_for_syntaxes.append(syntax_current_file)
                 enable_for_syntaxes.sort()
-                settings.set(setting_enable_for_syntaxes_list, enable_for_syntaxes)
-                sublime.save_settings(settings_file)
+                settings.set(ENABLE_FOR_SYNTAXES_LIST_SETTING, enable_for_syntaxes)
+                sublime.save_settings(SETTINGS_FILE)
                 msg = "Syntax added to the syntax list"
                 sublime.status_message(msg)
             else:
@@ -114,16 +117,16 @@ class SingleTrailingNewLineRemoveSyntaxCommand(sublime_plugin.TextCommand):
     def run(self, edit):
 
         try:
-            settings = sublime.load_settings(settings_file)
+            settings = sublime.load_settings(SETTINGS_FILE)
 
-            current_syntax = self.view.settings().get("syntax")
-            enable_for_syntaxes = settings.get(setting_enable_for_syntaxes_list, [])
+            syntax_current_file = self.view.settings().get("syntax")
+            enable_for_syntaxes = settings.get(ENABLE_FOR_SYNTAXES_LIST_SETTING, [])
 
-            if current_syntax in enable_for_syntaxes:
-                enable_for_syntaxes.remove(current_syntax)
+            if syntax_current_file in enable_for_syntaxes:
+                enable_for_syntaxes.remove(syntax_current_file)
                 enable_for_syntaxes.sort()
-                settings.set(setting_enable_for_syntaxes_list, enable_for_syntaxes)
-                sublime.save_settings(settings_file)
+                settings.set(ENABLE_FOR_SYNTAXES_LIST_SETTING, enable_for_syntaxes)
+                sublime.save_settings(SETTINGS_FILE)
                 msg = "Syntax removed from the syntax list"
                 sublime.status_message(msg)
             else:
@@ -148,17 +151,17 @@ class SingleTrailingNewLineEnableForAllSyntaxesSettingCommand(sublime_plugin.Tex
                 sublime.status_message(msg)
                 return
 
-            settings = sublime.load_settings(settings_file)
+            settings = sublime.load_settings(SETTINGS_FILE)
 
             if arg_value:
-                settings.set(setting_enable_for_all_syntaxes, True)
-                msg = "Enable For All Setting - True"
+                settings.set(ENABLE_FOR_ALL_SYNTAXES_SETTING, True)
+                msg = "Enable For All Syntaxes - True"
 
             else:
-                settings.set(setting_enable_for_all_syntaxes, False)
-                msg = "Enable For All Setting - False"
+                settings.set(ENABLE_FOR_ALL_SYNTAXES_SETTING, False)
+                msg = "Enable For All Syntaxes - False"
 
-            sublime.save_settings(settings_file)
+            sublime.save_settings(SETTINGS_FILE)
             sublime.status_message(msg)
 
         except Exception:
@@ -173,5 +176,6 @@ class SingleTrailingNewLineCopySyntaxCommand(sublime_plugin.TextCommand):
 
         syntax_current_file = self.view.settings().get("syntax")
         sublime.set_clipboard(syntax_current_file)
+
         msg = "Syntax copied to the clipboard"
         sublime.status_message(msg)
