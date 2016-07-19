@@ -1,0 +1,24 @@
+
+        Single Trailing Newline - Package for Sublime Text
+        --------------------------------------------------
+
+Thank you for installing the Single Trailing Newline package.
+
+This Sublime Text package makes sure that there is exactly one trailing newline
+at the end of a file.
+
+All the whitespace and trailing newlines at the end of the file, if there are
+any, are removed and a single newline is inserted.
+
+Empty files (a file size of zero) are deliberately ignored and will not have a
+newline inserted into them.
+
+****************************************************************************
+New users should read the documentation which you can find at the url below:
+****************************************************************************
+
+    https://github.com/mattst/sublime-single-trailing-new-line
+
+It has essential information about the palette commands and how to set up the
+package so that it runs automatically every time a file is saved, this can be
+set for either all files or for only files with the syntaxes that you specify.
