@@ -143,7 +143,7 @@ class SingleTrailingNewLineEnableForAllSyntaxesSettingCommand(sublime_plugin.Tex
         try:
             arg_value = kwargs.get("value", None)
 
-            if arg_value is None or not isinstance(arg_value, bool):
+            if not isinstance(arg_value, bool):
                 msg = "Invalid args"
                 sublime.status_message(msg)
                 return
