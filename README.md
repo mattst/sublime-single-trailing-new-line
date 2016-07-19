@@ -13,7 +13,7 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 - It can be set to run automatically every time a file is saved. This is disabled by default but by changing the settings it can be enabled either for all files or for only files of specific syntaxes.
 
-- Command palette entries are provided to change the package's settings; adding/removing syntaxes that will trigger the plugin when files are saved, and to allow or prevent the plugin from working with all syntaxes.
+- Command palette entries are provided to change the package's settings; adding/removing the syntaxes that will trigger the plugin, and to allow or prevent the plugin from running with all syntaxes.
 
 - It can also be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
 
