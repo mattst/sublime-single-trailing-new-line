@@ -6,14 +6,18 @@ Changes to version 1.1.5.
 
 Two new palette commands have been added:
 
-"Single Trailing NewLine: Enable For All Syntaxes - True"
-"Single Trailing NewLine: Enable For All Syntaxes - False"
+"Single Trailing NewLine: Run For All Syntaxes"
+"Single Trailing NewLine: Do Not Run For All Syntaxes"
 
 These allow the user to change the "enable_for_all_syntaxes" setting to true
-and false from the command palette.
+and false respectively.
 
 Please note that setting "enable_for_all_syntaxes" to false does not disable
 the plugin completely, it just prevents it from running for all syntaxes.
 
 When it is set to false the plugin will still run for the syntaxes listed in
 the "enable_for_syntaxes_list" setting (if there are any).
+
+Links to the package's documentation:
+https://packagecontrol.io/packages/SingleTrailingNewLine
+https://github.com/mattst/sublime-single-trailing-new-line

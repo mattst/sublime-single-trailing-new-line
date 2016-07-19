@@ -13,9 +13,9 @@ Note: This is different from the `ensure_newline_at_eof_on_save` setting which m
 
 - It can be set to run automatically every time a file is saved. This is disabled by default but by changing the settings it can be enabled either for all files or for only files of specific syntaxes.
 
-- It can be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
+- Command palette entries are provided to change the package's settings; adding/removing syntaxes that will trigger the plugin when files are saved, and to allow or prevent the plugin from working with all syntaxes.
 
-- Command palette entries to add and remove the syntax of the current file to the syntaxes list setting, and to set the enable for all syntaxes setting to true and false, are also provided.
+- It can also be run by using its command palette entry or by assigning it to a key binding. In both these cases the settings file is ignored and it will work with all files.
 
 ### Requirements
 
@@ -50,11 +50,11 @@ The package includes several command palette commands:
 
 - `Single Trailing New Line: Remove Current Syntax`: removes the full syntax name of the current file from the syntax list setting.
 
-- `Single Trailing New Line: Enable For All Syntaxes - True`: sets the enable for all syntaxes setting to true.
+- `Single Trailing NewLine: Run For All Syntaxes`: sets the enable for all syntaxes setting to true.
 
-- `Single Trailing New Line: Enable For All Syntaxes - False`: sets the enable for all syntaxes setting to false.
+- `Single Trailing NewLine: Do Not Run For All Syntaxes`: sets the enable for all syntaxes setting to false.
 
-- `Single Trailing New Line: Copy Current Syntax`: copies the full syntax name of the current file into the clipboard.
+- `Single Trailing New Line: Copy Current Syntax`: copies the full syntax name of the current file into the clipboard. [*Legacy: No longer really needed now that syntaxes can be added/removed using the command palette.*]
 
 #### Key Bindings
 
@@ -104,7 +104,6 @@ Here is an example `Packages/User/SingleTrailingNewLine.sublime-settings` file:
 
     {
         "enable_for_all_syntaxes": false,
-
         "enable_for_syntaxes_list":
         [
             "Packages/C++/C.sublime-syntax",

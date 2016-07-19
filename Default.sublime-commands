@@ -8,14 +8,14 @@
     { "caption": "Single Trailing NewLine: Remove Current Syntax",
       "command": "single_trailing_new_line_remove_syntax" },
 
-    { "caption": "Single Trailing NewLine: Copy Current Syntax",
-      "command": "single_trailing_new_line_copy_syntax" },
-
-    { "caption": "Single Trailing NewLine: Enable For All Syntaxes - True",
+    { "caption": "Single Trailing NewLine: Run For All Syntaxes",
       "command": "single_trailing_new_line_enable_for_all_syntaxes_setting",
       "args": {"value": true} },
 
-    { "caption": "Single Trailing NewLine: Enable For All Syntaxes - False",
+    { "caption": "Single Trailing NewLine: Do Not Run For All Syntaxes",
       "command": "single_trailing_new_line_enable_for_all_syntaxes_setting",
-      "args": {"value": false} }
+      "args": {"value": false} },
+
+    { "caption": "Single Trailing NewLine: Copy Current Syntax",
+      "command": "single_trailing_new_line_copy_syntax" }
 ]
