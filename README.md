@@ -1,7 +1,11 @@
 
-## Single Trailing New Line - Package for Sublime Text
+## Single Trailing Newline - Package for Sublime Text
 
-This Sublime Text package makes sure that there is exactly one trailing newline at the end of a file. All the whitespace and trailing newlines at the end of the file (if any) are removed and a single newline is inserted. Note that empty files (a file size of zero) are deliberately ignored and will not have a newline inserted into them.
+This Sublime Text package makes sure that there is exactly one trailing newline at the end of a file.
+
+All the whitespace and trailing newlines at the end of the file (if any) are removed and then a single newline is inserted.
+
+Empty files, those with a file size of zero, are deliberately ignored and will not have a newline inserted.
 
 Note: This is different from the `ensure_newline_at_eof_on_save` setting which makes sure that there is *at least one trailing newline* at the end of the file, rather than making sure that there is *exactly one trailing newline* at the end of the file.
 
