@@ -6,9 +6,8 @@ Changes to version 1.1.5.
 
 Two new palette commands have been added:
 
-"Single Trailing New Line: Enable For All Syntaxes - True"
-
-"Single Trailing New Line: Enable For All Syntaxes - False"
+"Single Trailing NewLine: Enable For All Syntaxes - True"
+"Single Trailing NewLine: Enable For All Syntaxes - False"
 
 These allow the user to change the "enable_for_all_syntaxes" setting to true
 and false from the command palette.
