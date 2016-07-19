@@ -13,12 +13,22 @@ any, are removed and a single newline is inserted.
 Empty files (a file size of zero) are deliberately ignored and will not have a
 newline inserted into them.
 
-****************************************************************************
-New users should read the documentation which you can find at the url below:
-****************************************************************************
+The plugin has been designed to run automatically every time a file is saved,
+either for all files or for only files with the syntaxes that you specify. This
+will only start happening if you enable the plugin for all syntaxes or add one
+or more syntaxes that you want to trigger the plugin (see the documentation).
 
+Palette commands are provided to run the plugin and to change its settings;
+adding/removing syntaxes that will trigger the plugin, and to allow or prevent
+the plugin from working with all syntaxes.
+
+No keymap file is provided but any users who would prefer to run the plugin
+manually, on an as-needed basis, can setup a key binding to do so easily (see
+the documentation).
+
+*****************************************************************************
+New users should read the documentation which you can find at the urls below:
+*****************************************************************************
+
+    https://packagecontrol.io/packages/SingleTrailingNewLine
     https://github.com/mattst/sublime-single-trailing-new-line
-
-It has essential information about the palette commands and how to set up the
-package so that it runs automatically every time a file is saved, this can be
-set for either all files or for only files with the syntaxes that you specify.
